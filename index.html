@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADM-projetos — 4 opções de design (Dark Neumorphism)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #0b0d0f;
+    --page-card: #14171a;
+    --page-text: #e8ebee;
+    --page-dim: #8a9198;
+    --page-line: #23282d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background: radial-gradient(1200px 600px at 20% -10%, #161a1e 0%, var(--page-bg) 55%);
+    color: var(--page-text);
+    padding: 32px 16px 80px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  header { max-width: 1080px; margin: 0 auto 28px; text-align: center; }
+  header h1 { font-size: clamp(22px, 4vw, 30px); font-weight: 800; letter-spacing: -0.3px; }
+  header p { color: var(--page-dim); margin-top: 8px; font-size: 14px; line-height: 1.55; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .grid {
+    max-width: 1120px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px;
+  }
+
+  /* ====== opções ====== */
+  .opt {
+    background: linear-gradient(160deg, #1a1e22, #101316);
+    border: 1px solid #262c32;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 30px 50px -20px rgba(0,0,0,.6);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .opt h2 { font-size: 19px; font-weight: 800; letter-spacing: -0.2px; display: flex; align-items: center; gap: 10px; }
+  .opt h2 .letra {
+    width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+    font-size: 15px; font-weight: 800; flex-shrink: 0;
+  }
+  .opt .desc { color: var(--page-dim); font-size: 12.5px; line-height: 1.55; }
+
+  /* ====== mockup do celular ====== */
+  .phone {
+    --bg1: #000; --bg2: #000; --surf1: #000; --surf2: #000; --accent: #fff;
+    --text: #fff; --text2: #999; --tint: rgba(255,255,255,.1);
+    --radial: rgba(255,255,255,.05);
+    width: 100%; max-width: 320px; margin: 0 auto; aspect-ratio: 9/18.6;
+    border-radius: 38px; padding: 14px;
+    background: linear-gradient(160deg, var(--bg1), var(--bg2));
+    position: relative; overflow: hidden;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,.07), inset -2px -2px 0 rgba(0,0,0,.5),
+                0 40px 60px -24px rgba(0,0,0,.7);
+    display: flex; flex-direction: column;
+  }
+  .phone::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(130% 60% at 30% -10%, var(--radial), transparent 60%);
+  }
+  .screen { flex: 1; display: flex; flex-direction: column; gap: 8px; position: relative; min-height: 0; }
+
+  /* AppBar do mockup */
+  .m-appbar { display: flex; align-items: center; gap: 6px; padding: 2px 2px 6px; }
+  .m-appbar .t { font-size: 12px; font-weight: 800; color: var(--text); letter-spacing: -0.2px; }
+  .m-appbar .sp { flex: 1; }
+  .m-ic {
+    width: 26px; height: 26px; border-radius: 9px; display: grid; place-items: center;
+    color: var(--text2); font-size: 11px; font-weight: 700;
+    background: linear-gradient(150deg, var(--surf1), var(--surf2));
+    box-shadow: 3px 3px 7px rgba(0,0,0,.55), -2px -2px 6px -2px rgba(255,255,255,.06),
+                inset 1px 1px 0 rgba(255,255,255,.05);
+  }
+
+  /* Abas */
+  .m-tabs { display: flex; gap: 6px; margin: 2px 0 6px; }
+  .m-tab {
+    flex: 1; text-align: center; padding: 6px 0; font-size: 10.5px; font-weight: 700;
+    border-radius: 12px; color: var(--text2);
+    background: linear-gradient(150deg, var(--surf1), var(--surf2));
+    box-shadow: 3px 3px 8px rgba(0,0,0,.5), -2px -2px 6px -2px rgba(255,255,255,.05),
+                inset 1px 1px 0 rgba(255,255,255,.05);
+  }
+  .m-tab.on {
+    color: var(--text); background: linear-gradient(150deg, var(--tint), transparent);
+    box-shadow: inset 3px 3px 7px rgba(0,0,0,.5), inset -2px -2px 5px -2px rgba(255,255,255,.05);
+  }
+
+  /* Cartão de projeto */
+  .m-proj {
+    display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 16px;
+    background: linear-gradient(150deg, var(--surf1), var(--surf2));
+    box-shadow: 5px 5px 12px rgba(0,0,0,.5), -3px -3px 9px -3px rgba(255,255,255,.05),
+                inset 1px 1px 0 rgba(255,255,255,.06), inset -1px -1px 0 rgba(0,0,0,.25);
+    font-size: 10.5px; font-weight: 700; color: var(--text);
+  }
+  .m-proj .p { flex: 1; }
+  .dots { color: var(--text2); letter-spacing: 0; font-size: 10px; line-height: 0.8; }
+  .bol {
+    width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+    font-size: 9px; color: var(--accent); background: linear-gradient(150deg, var(--surf1), var(--surf2));
+    box-shadow: 2px 2px 5px rgba(0,0,0,.55), -2px -2px 4px -1px rgba(255,255,255,.05),
+                inset 1px 1px 0 rgba(255,255,255,.05);
+  }
+
+  /* Caixinha */
+  .m-nota {
+    border-radius: 16px; overflow: hidden;
+    background: linear-gradient(155deg, var(--surf1), var(--surf2));
+    box-shadow: 6px 6px 14px rgba(0,0,0,.52), -4px -4px 10px -4px rgba(255,255,255,.05),
+                inset 1px 1px 0 rgba(255,255,255,.07);
+  }
+  .m-tool {
+    display: flex; gap: 4px; align-items: center; padding: 5px 8px;
+    background: linear-gradient(150deg, var(--surf1), var(--surf2));
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.3);
+  }
+  .m-tool .d { color: var(--text2); font-size: 8px; margin-right: 2px; }
+  .tbt {
+    width: 18px; height: 18px; border-radius: 6px; display: grid; place-items: center;
+    font-size: 7.5px; color: var(--text2); background: transparent;
+    box-shadow: 1.5px 1.5px 3.5px rgba(0,0,0,.45), -1px -1px 3px -1px rgba(255,255,255,.05);
+  }
+  .tbt.a { color: var(--accent); }
+  .m-txt { padding: 6px 10px 8px; font-size: 9px; line-height: 1.5; color: var(--text); }
+  .m-txt .c { color: var(--accent); }
+  .m-txt .dim { color: var(--text2); }
+
+  /* FAB */
+  .m-fab {
+    position: absolute; right: 6px; bottom: 6px; width: 38px; height: 38px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 17px; font-weight: 600; color: #14100a;
+    background: linear-gradient(150deg, var(--accent), color-mix(in srgb, var(--accent) 78%, #000));
+    box-shadow: 6px 8px 14px rgba(0,0,0,.55), -3px -3px 8px -2px rgba(255,255,255,.06),
+                inset 1px 1px 0 rgba(255,255,255,.35);
+  }
+
+  /* ====== estados ====== */
+  .estados { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .est {
+    border-radius: 14px; padding: 10px 6px; text-align: center; font-size: 10px; font-weight: 700;
+    color: var(--text); cursor: pointer; user-select: none; touch-action: manipulation;
+    background: linear-gradient(150deg, var(--surf1), var(--surf2));
+    box-shadow: 5px 5px 11px rgba(0,0,0,.5), -3px -3px 8px -3px rgba(255,255,255,.05),
+                inset 1px 1px 0 rgba(255,255,255,.06);
+    transition: box-shadow .12s ease, transform .12s ease;
+  }
+  .est.pressed {
+    box-shadow: inset 4px 4px 9px rgba(0,0,0,.55), inset -3px -3px 7px -3px rgba(255,255,255,.04);
+    transform: translateY(1px);
+  }
+  .est.sel {
+    background: linear-gradient(150deg, var(--tint), transparent), linear-gradient(150deg, var(--surf1), var(--surf2));
+    color: var(--text);
+    box-shadow: inset 4px 4px 9px rgba(0,0,0,.5), inset -3px -3px 7px -3px rgba(255,255,255,.04),
+                0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+  .est.dis {
+    opacity: .38; box-shadow: 2px 2px 5px rgba(0,0,0,.35);
+  }
+
+  /* ====== specs ====== */
+  .specs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .spec {
+    border: 1px solid var(--page-line); border-radius: 10px; padding: 5px 8px;
+    font-size: 10.5px; color: var(--page-dim); display: flex; align-items: center; gap: 6px;
+  }
+  .sw {
+    width: 12px; height: 12px; border-radius: 4px; flex-shrink: 0;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,.15);
+  }
+  .spec b { color: var(--page-text); font-weight: 700; }
+
+  footer { max-width: 640px; margin: 40px auto 0; text-align: center; color: var(--page-dim); font-size: 13px; line-height: 1.6; }
+  footer b { color: var(--page-text); }
+
+  /* ====== 4 temas ====== */
+  .opt[data-t="a"] {
+    --bg1: #1c1f21; --bg2: #121416; --surf1: #26292c; --surf2: #1b1e20;
+    --accent: #e8a13a; --text: #f2f4f5; --text2: #8f959b;
+    --tint: rgba(232,161,58,.16); --radial: rgba(232,161,58,.06);
+  }
+  .opt[data-t="a"] h2 .letra { background: linear-gradient(150deg, #e8a13a, #b87a22); color: #1a1309; }
+  .opt[data-t="a"] .desc b { color: #e8a13a; }
+
+  .opt[data-t="b"] {
+    --bg1: #181d24; --bg2: #0e1115; --surf1: #232b34; --surf2: #181f27;
+    --accent: #79b8dc; --text: #edf2f5; --text2: #8b98a4;
+    --tint: rgba(121,184,220,.15); --radial: rgba(121,184,220,.05);
+  }
+  .opt[data-t="b"] h2 .letra { background: linear-gradient(150deg, #79b8dc, #4d86a8); color: #0c141a; }
+  .opt[data-t="b"] .desc b { color: #79b8dc; }
+
+  .opt[data-t="c"] {
+    --bg1: #1a1721; --bg2: #100e15; --surf1: #262034; --surf2: #1a1624;
+    --accent: #a98fe0; --text: #f1eef5; --text2: #948ba5;
+    --tint: rgba(169,143,224,.16); --radial: rgba(169,143,224,.06);
+  }
+  .opt[data-t="c"] h2 .letra { background: linear-gradient(150deg, #a98fe0, #7a63ad); color: #171021; }
+  .opt[data-t="c"] .desc b { color: #a98fe0; }
+
+  .opt[data-t="d"] {
+    --bg1: #191e17; --bg2: #0f120d; --surf1: #242b1f; --surf2: #191f16;
+    --accent: #a3c48f; --text: #eff2ec; --text2: #909a8a;
+    --tint: rgba(163,196,143,.15); --radial: rgba(163,196,143,.05);
+  }
+  .opt[data-t="d"] h2 .letra { background: linear-gradient(150deg, #a3c48f, #70965e); color: #12180e; }
+  .opt[data-t="d"] .desc b { color: #a3c48f; }
+
+  .opt .m-fab, .opt .est, .opt .m-proj, .opt .m-nota, .opt .m-tab, .opt .m-ic { border: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>4 opções de design para o ADM-projetos</h1>
+  <p>Dark Neumorphism / Soft UI. Toque e segure os botões de estado para ver o efeito pressionado; toque em "Selecionado" para alternar. A luz vem sempre do canto superior esquerdo.</p>
+</header>
+
+<div class="grid">
+
+  <!-- ================= A ================= -->
+  <div class="opt" data-t="a">
+    <h2><span class="letra">A</span> Grafite + Âmbar</h2>
+    <p class="desc">A interpretação mais próxima da sua referência: grafite quase preto, superfícies grafite claro, acentos em <b>âmbar suave</b>. Quente, premium, discreta.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar">
+          <span class="t">ADM-projetos</span><span class="sp"></span>
+          <span class="m-ic">🔍</span><span class="m-ic">⚙</span>
+        </div>
+        <div class="m-tabs"><div class="m-tab on">Tarefas</div><div class="m-tab">Futuro</div></div>
+        <div class="m-proj"><span class="dots">⠿</span><span class="p">Projeto Casa</span><span class="bol">✎</span><span class="bol">🗑</span></div>
+        <div class="m-nota">
+          <div class="m-tool">
+            <span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">1.</span><span class="tbt">☐</span><span class="tbt">⇵</span><span class="tbt">🔗</span><span class="tbt">✎</span><span class="tbt">🗑</span>
+          </div>
+          <div class="m-txt">1- Comprar tinta da parede<br>2- Trocar lâmpada da sala<br><span class="c">☐</span> Medir janela do quarto</div>
+        </div>
+        <div class="m-nota">
+          <div class="m-tool"><span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">🔗</span><span class="tbt">✎</span></div>
+          <div class="m-txt"><span class="dim">Ideias para o quintal…</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="estados">
+      <div class="est" onpointerdown="this.classList.add('pressed')" onpointerup="this.classList.remove('pressed')" onpointerleave="this.classList.remove('pressed')">Normal<br><small style="font-weight:400;opacity:.6">segure</small></div>
+      <div class="est pressed">Pressionado</div>
+      <div class="est sel" onclick="this.classList.toggle('sel')">Selecionado<br><small style="font-weight:400;opacity:.6">toque</small></div>
+      <div class="est dis">Desabilitado</div>
+    </div>
+
+    <div class="specs">
+      <span class="spec"><span class="sw" style="background:#1c1f21"></span>Fundo <b>#1C1F21 → #121416</b></span>
+      <span class="spec"><span class="sw" style="background:#26292c"></span>Card <b>#26292C → #1B1E20</b></span>
+      <span class="spec"><span class="sw" style="background:#e8a13a"></span>Accent <b>#E8A13A</b></span>
+      <span class="spec"><span class="sw" style="background:#8f959b"></span>Texto 2ª <b>#8F959B</b></span>
+      <span class="spec">Raio <b>16–24px</b></span>
+      <span class="spec">Sombra <b>↗ 45°·2 camadas</b></span>
+      <span class="spec">Fonte <b>Manrope 400/700/800</b></span>
+    </div>
+  </div>
+
+  <!-- ================= B ================= -->
+  <div class="opt" data-t="b">
+    <h2><span class="letra">B</span> Aço + Gelo</h2>
+    <p class="desc">Fria e tecnológica: azul-aço profundo com acento <b>gelo azulado</b>. Transmite foco, silêncio, noite.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar">
+          <span class="t">ADM-projetos</span><span class="sp"></span>
+          <span class="m-ic">🔍</span><span class="m-ic">⚙</span>
+        </div>
+        <div class="m-tabs"><div class="m-tab on">Tarefas</div><div class="m-tab">Futuro</div></div>
+        <div class="m-proj"><span class="dots">⠿</span><span class="p">Trabalho</span><span class="bol">✎</span><span class="bol">🗑</span></div>
+        <div class="m-nota">
+          <div class="m-tool">
+            <span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">1.</span><span class="tbt">☐</span><span class="tbt">⇵</span><span class="tbt">🔗</span><span class="tbt">✎</span><span class="tbt">🗑</span>
+          </div>
+          <div class="m-txt">1- Enviar relatório<br><span class="c">☑</span> <span class="dim">Revisar planilha de custos</span><br><span class="c">☐</span> Agendar reunião</div>
+        </div>
+        <div class="m-nota">
+          <div class="m-tool"><span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">🔗</span><span class="tbt">✎</span></div>
+          <div class="m-txt"><span class="dim">Anotações da reunião…</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="estados">
+      <div class="est" onpointerdown="this.classList.add('pressed')" onpointerup="this.classList.remove('pressed')" onpointerleave="this.classList.remove('pressed')">Normal<br><small style="font-weight:400;opacity:.6">segure</small></div>
+      <div class="est pressed">Pressionado</div>
+      <div class="est sel" onclick="this.classList.toggle('sel')">Selecionado<br><small style="font-weight:400;opacity:.6">toque</small></div>
+      <div class="est dis">Desabilitado</div>
+    </div>
+
+    <div class="specs">
+      <span class="spec"><span class="sw" style="background:#181d24"></span>Fundo <b>#181D24 → #0E1115</b></span>
+      <span class="spec"><span class="sw" style="background:#232b34"></span>Card <b>#232B34 → #181F27</b></span>
+      <span class="spec"><span class="sw" style="background:#79b8dc"></span>Accent <b>#79B8DC</b></span>
+      <span class="spec"><span class="sw" style="background:#8b98a4"></span>Texto 2ª <b>#8B98A4</b></span>
+      <span class="spec">Raio <b>16–24px</b></span>
+      <span class="spec">Sombra <b>↗ 45°·2 camadas</b></span>
+      <span class="spec">Fonte <b>Manrope 400/700/800</b></span>
+    </div>
+  </div>
+
+  <!-- ================= C ================= -->
+  <div class="opt" data-t="c">
+    <h2><span class="letra">C</span> Violeta + Lavanda</h2>
+    <p class="desc">Sombria e criativa: violeta profundo com acento <b>lavanda</b>. A opção mais "autoral" e acolhedora.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar">
+          <span class="t">ADM-projetos</span><span class="sp"></span>
+          <span class="m-ic">🔍</span><span class="m-ic">⚙</span>
+        </div>
+        <div class="m-tabs"><div class="m-tab on">Tarefas</div><div class="m-tab">Futuro</div></div>
+        <div class="m-proj"><span class="dots">⠿</span><span class="p">Estudos</span><span class="bol">✎</span><span class="bol">🗑</span></div>
+        <div class="m-nota">
+          <div class="m-tool">
+            <span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">1.</span><span class="tbt">☐</span><span class="tbt">⇵</span><span class="tbt">🔗</span><span class="tbt">✎</span><span class="tbt">🗑</span>
+          </div>
+          <div class="m-txt">1- Capítulo 4 do livro<br>2- Resumo em voz alta<br><span class="c">☐</span> Revisar flashcards</div>
+        </div>
+        <div class="m-nota">
+          <div class="m-tool"><span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">🔗</span><span class="tbt">✎</span></div>
+          <div class="m-txt"><span class="dim">Temas do próximo mês…</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="estados">
+      <div class="est" onpointerdown="this.classList.add('pressed')" onpointerup="this.classList.remove('pressed')" onpointerleave="this.classList.remove('pressed')">Normal<br><small style="font-weight:400;opacity:.6">segure</small></div>
+      <div class="est pressed">Pressionado</div>
+      <div class="est sel" onclick="this.classList.toggle('sel')">Selecionado<br><small style="font-weight:400;opacity:.6">toque</small></div>
+      <div class="est dis">Desabilitado</div>
+    </div>
+
+    <div class="specs">
+      <span class="spec"><span class="sw" style="background:#1a1721"></span>Fundo <b>#1A1721 → #100E15</b></span>
+      <span class="spec"><span class="sw" style="background:#262034"></span>Card <b>#262034 → #1A1624</b></span>
+      <span class="spec"><span class="sw" style="background:#a98fe0"></span>Accent <b>#A98FE0</b></span>
+      <span class="spec"><span class="sw" style="background:#948ba5"></span>Texto 2ª <b>#948BA5</b></span>
+      <span class="spec">Raio <b>16–24px</b></span>
+      <span class="spec">Sombra <b>↗ 45°·2 camadas</b></span>
+      <span class="spec">Fonte <b>Manrope 400/700/800</b></span>
+    </div>
+  </div>
+
+  <!-- ================= D ================= -->
+  <div class="opt" data-t="d">
+    <h2><span class="letra">D</span> Musgo + Sálvia</h2>
+    <p class="desc">Orgânica e calma: verde-musgo escuro com acento <b>sálvia</b>. Menos comum, lembra papelaria de luxo.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar">
+          <span class="t">ADM-projetos</span><span class="sp"></span>
+          <span class="m-ic">🔍</span><span class="m-ic">⚙</span>
+        </div>
+        <div class="m-tabs"><div class="m-tab on">Tarefas</div><div class="m-tab">Futuro</div></div>
+        <div class="m-proj"><span class="dots">⠿</span><span class="p">Saúde</span><span class="bol">✎</span><span class="bol">🗑</span></div>
+        <div class="m-nota">
+          <div class="m-tool">
+            <span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">1.</span><span class="tbt">☐</span><span class="tbt">⇵</span><span class="tbt">🔗</span><span class="tbt">✎</span><span class="tbt">🗑</span>
+          </div>
+          <div class="m-txt">1- Caminhada 30 min<br>2- Beber 2L de água<br><span class="c">☐</span> Dormir antes das 23h</div>
+        </div>
+        <div class="m-nota">
+          <div class="m-tool"><span class="d">⠿</span><span class="tbt a">⧉</span><span class="tbt">☑</span><span class="tbt">🔗</span><span class="tbt">✎</span></div>
+          <div class="m-txt"><span class="dim">Rotina da semana…</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="estados">
+      <div class="est" onpointerdown="this.classList.add('pressed')" onpointerup="this.classList.remove('pressed')" onpointerleave="this.classList.remove('pressed')">Normal<br><small style="font-weight:400;opacity:.6">segure</small></div>
+      <div class="est pressed">Pressionado</div>
+      <div class="est sel" onclick="this.classList.toggle('sel')">Selecionado<br><small style="font-weight:400;opacity:.6">toque</small></div>
+      <div class="est dis">Desabilitado</div>
+    </div>
+
+    <div class="specs">
+      <span class="spec"><span class="sw" style="background:#191e17"></span>Fundo <b>#191E17 → #100F0D</b></span>
+      <span class="spec"><span class="sw" style="background:#242b1f"></span>Card <b>#242B1F → #191F16</b></span>
+      <span class="spec"><span class="sw" style="background:#a3c48f"></span>Accent <b>#A3C48F</b></span>
+      <span class="spec"><span class="sw" style="background:#909a8a"></span>Texto 2ª <b>#909A8A</b></span>
+      <span class="spec">Raio <b>16–24px</b></span>
+      <span class="spec">Sombra <b>↗ 45°·2 camadas</b></span>
+      <span class="spec">Fonte <b>Manrope 400/700/800</b></span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <b>Como escolher:</b> responda só com a letra — <b>A</b> Grafite+Âmbar · <b>B</b> Aço+Gelo ·
+  <b>C</b> Violeta+Lavanda · <b>D</b> Musgo+Sálvia.<br>
+  Regras comuns às 4: luz ↗ superior esquerda, sombra dupla difusa (proximidade + ambiente),
+  relevo por luz/sombra (sem bordas), raios 16–24px, inner shadow nos pressionados,
+  gradientes de superfície a 150°, highlight de 1px no topo/esquerda.
+</footer>
+
+</body>
+</html>
