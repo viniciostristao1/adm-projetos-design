@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADM-projetos — ideias para a página inicial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #0b0d0f;
+    --page-card: #14171a;
+    --page-text: #e8ebee;
+    --page-dim: #8a9198;
+    --page-line: #23282d;
+    --accent: #d97757;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background: radial-gradient(1200px 600px at 20% -10%, #161a1e 0%, var(--page-bg) 55%);
+    color: var(--page-text);
+    padding: 32px 16px 80px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  header { max-width: 1080px; margin: 0 auto 28px; text-align: center; }
+  header h1 { font-size: clamp(22px, 4vw, 30px); font-weight: 800; letter-spacing: -0.3px; }
+  header p { color: var(--page-dim); margin-top: 8px; font-size: 14px; line-height: 1.55; max-width: 700px; margin-left: auto; margin-right: auto; }
+  header p b { color: var(--page-text); }
+  .grid {
+    max-width: 1120px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px;
+  }
+
+  .opt {
+    background: linear-gradient(160deg, #1a1e22, #101316);
+    border: 1px solid #262c32;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 30px 50px -20px rgba(0,0,0,.6);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .opt h2 { font-size: 19px; font-weight: 800; letter-spacing: -0.2px; display: flex; align-items: center; gap: 10px; }
+  .opt h2 .letra {
+    width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+    font-size: 15px; font-weight: 800; flex-shrink: 0;
+    background: linear-gradient(150deg, #d97757, #a34a2e); color: #120806;
+  }
+  .opt h2 small { font-size: 12px; font-weight: 700; color: var(--page-dim); margin-left: auto; white-space: nowrap; }
+  .opt .desc { color: var(--page-dim); font-size: 12.5px; line-height: 1.6; }
+  .opt .desc b { color: var(--page-text); }
+  .tag {
+    display: inline-block; font-size: 9.5px; font-weight: 800; letter-spacing: .4px;
+    border-radius: 8px; padding: 3px 7px; vertical-align: 1px;
+  }
+  .tag.novo { background: rgba(217,119,87,.15); color: var(--accent); border: 1px solid rgba(217,119,87,.3); }
+  .tag.tem { background: rgba(120,160,220,.12); color: #78a0dc; border: 1px solid rgba(120,160,220,.28); }
+
+  /* ====== mockup do celular ====== */
+  .phone {
+    --bg1: #101214; --bg2: #0a0b0d; --surf1: #17191c; --surf2: #131517;
+    --accent: #d97757; --text: #f0eee9; --text2: #8a8a8a;
+    --line: rgba(255,255,255,.09); --som: rgba(0,0,0,.45);
+    --radial: rgba(217,119,87,.05);
+    width: 100%; max-width: 320px; margin: 0 auto; aspect-ratio: 9/18.6;
+    border-radius: 38px; padding: 14px;
+    background: linear-gradient(160deg, var(--bg1), var(--bg2));
+    position: relative; overflow: hidden;
+    box-shadow: inset 2px 2px 0 rgba(255,255,255,.07), inset -2px -2px 0 rgba(0,0,0,.5),
+                0 40px 60px -24px rgba(0,0,0,.7);
+    display: flex; flex-direction: column;
+  }
+  .phone::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(130% 60% at 30% -10%, var(--radial), transparent 60%);
+  }
+  .screen { flex: 1; display: flex; flex-direction: column; gap: 8px; position: relative; min-height: 0; }
+
+  .m-appbar { display: flex; align-items: center; gap: 6px; padding: 2px 2px 6px; }
+  .m-appbar .logo {
+    width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center;
+    font-size: 11px; font-weight: 800; flex-shrink: 0;
+    background: linear-gradient(150deg, var(--accent), color-mix(in srgb, var(--accent) 70%, #000));
+    color: #101014;
+  }
+  .m-appbar .t { font-size: 12.5px; font-weight: 800; color: var(--text); letter-spacing: -0.2px; }
+  .m-appbar .sp { flex: 1; }
+  .m-ic {
+    width: 26px; height: 26px; border-radius: 9px; display: grid; place-items: center;
+    color: var(--text2); font-size: 11px; font-weight: 700;
+    background: linear-gradient(150deg, var(--surf1), var(--surf2));
+    box-shadow: 3px 3px 7px var(--som), -2px -2px 6px -2px rgba(255,255,255,.06);
+  }
+
+  /* rotulo da prateleira recentes */
+  .m-rot { font-size: 9px; font-weight: 800; letter-spacing: .6px; color: var(--text2); padding: 0 2px; }
+
+  /* prateleira horizontal (recentes) */
+  .m-shelf { display: flex; gap: 6px; overflow: hidden; }
+  .m-scard {
+    width: 96px; flex-shrink: 0; border-radius: 10px; padding: 7px;
+    background: var(--surf1); border: 1px solid var(--line);
+  }
+  .m-scard .n { font-size: 9px; font-weight: 800; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-scard .c { font-size: 7.5px; color: var(--text2); margin-top: 2px; }
+  .m-scard .b { height: 2.5px; border-radius: 2px; background: var(--line); margin-top: 5px; }
+  .m-scard .b i { display: block; height: 2.5px; border-radius: 2px; background: var(--accent); }
+
+  /* ====== variantes de lista ====== */
+  .lst { display: flex; flex-direction: column; }
+  .linha {
+    display: flex; align-items: center; gap: 7px; padding: 11px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .linha:last-child { border-bottom: none; }
+  .linha .drag { color: var(--text2); font-size: 9px; opacity: .6; }
+  .linha .nome { flex: 1; font-size: 12.5px; font-weight: 800; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .linha .mini { width: 22px; height: 22px; display: grid; place-items: center; font-size: 9.5px; color: var(--text2); flex-shrink: 0; }
+  .linha .mini.on { color: var(--accent); }
+  .linha .mini.del { color: #ff6b6b; }
+  .linha.barra { position: relative; }
+  .linha.barra::before { content: ''; position: absolute; left: -4px; top: 6px; bottom: 6px; width: 3px; border-radius: 3px; background: var(--accent); }
+
+  .linha-caixa {
+    display: flex; align-items: center; gap: 7px; padding: 10px 12px;
+    border-radius: 12px; background: linear-gradient(155deg, var(--surf1), var(--surf2));
+    box-shadow: 4px 4px 10px var(--som), -2px -2px 7px -3px rgba(255,255,255,.05);
+  }
+  .linha-caixa .drag { color: var(--text2); font-size: 9px; opacity: .6; }
+  .linha-caixa .nome { flex: 1; font-size: 12px; font-weight: 800; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .linha-caixa .meta { font-size: 8.5px; color: var(--text2); font-weight: 600; }
+  .mini { width: 22px; height: 22px; display: grid; place-items: center; font-size: 9.5px; color: var(--text2); flex-shrink: 0; }
+  .mini.on { color: var(--accent); }
+  .mini.del { color: #ff6b6b; }
+
+  /* grade */
+  .grd { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  .gcard {
+    border-radius: 13px; padding: 9px; display: flex; flex-direction: column; gap: 5px;
+    background: linear-gradient(155deg, var(--surf1), var(--surf2));
+    box-shadow: 4px 4px 10px var(--som), -2px -2px 7px -3px rgba(255,255,255,.05);
+    position: relative; overflow: hidden;
+  }
+  .gcard.ativo::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+  .gcard .nome { font-size: 10.5px; font-weight: 800; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .gcard .meta { font-size: 7.8px; color: var(--text2); font-weight: 600; }
+  .gcard .b { height: 2.5px; border-radius: 2px; background: var(--line); margin-top: 1px; }
+  .gcard .b i { display: block; height: 2.5px; border-radius: 2px; background: var(--accent); }
+
+  /* anel de progresso */
+  .anel { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; position: relative; flex-shrink: 0; }
+  .anel::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--accent) 0 60%, var(--line) 60% 100%); }
+  .anel::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--bg1); }
+  .anel b { position: relative; z-index: 1; font-size: 7.5px; color: var(--text); }
+
+  /* prévia */
+  .preview { font-size: 7.6px; line-height: 1.5; color: var(--text2); margin-top: 2px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .preview .c { color: var(--accent); }
+
+  .m-fab {
+    position: absolute; right: 6px; bottom: 6px; width: 38px; height: 38px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 17px; font-weight: 600; color: #101014;
+    background: linear-gradient(150deg, var(--accent), color-mix(in srgb, var(--accent) 78%, #000));
+    box-shadow: 6px 8px 14px rgba(0,0,0,.55), -3px -3px 8px -2px rgba(255,255,255,.06);
+  }
+
+  /* ====== specs ====== */
+  .specs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .spec {
+    border: 1px solid var(--page-line); border-radius: 10px; padding: 5px 8px;
+    font-size: 10.5px; color: var(--page-dim); display: flex; align-items: center; gap: 6px;
+  }
+  .spec b { color: var(--page-text); font-weight: 700; }
+
+  /* ====== ideias de fluxo ====== */
+  .fluxo { max-width: 1120px; margin: 44px auto 0; }
+  .fluxo h2 { font-size: clamp(18px, 3vw, 24px); font-weight: 800; text-align: center; letter-spacing: -0.2px; }
+  .fluxo > p { color: var(--page-dim); font-size: 13px; text-align: center; margin: 8px auto 20px; max-width: 640px; }
+  .f-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .f {
+    background: linear-gradient(160deg, #1a1e22, #101316);
+    border: 1px solid #262c32; border-radius: 18px; padding: 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .f .num {
+    width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center;
+    font-size: 12px; font-weight: 800; flex-shrink: 0; color: #120806;
+    background: linear-gradient(150deg, #d97757, #a34a2e);
+  }
+  .f h3 { font-size: 14.5px; font-weight: 800; margin-bottom: 4px; }
+  .f h3 .tag { margin-left: 6px; }
+  .f p { font-size: 12px; color: var(--page-dim); line-height: 1.6; }
+  .f p b { color: var(--page-text); }
+
+  footer { max-width: 640px; margin: 40px auto 0; text-align: center; color: var(--page-dim); font-size: 13px; line-height: 1.6; }
+  footer b { color: var(--page-text); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ideias para a página inicial do ADM-projetos</h1>
+  <p>A <b>distribuição</b> dos projetos (caixas, linhas, grade…) e ideias de <b>fluxo</b>
+  (ações rápidas, pinos, modos). Todas usam a mesma paleta neutra para comparar só a forma.
+  As etiquetas <span class="tag novo">NOVO</span> marcam o que ainda não existe
+  e <span class="tag tem">JÁ TEM</span> o que o app já faz.</p>
+</header>
+
+<div class="grid">
+
+  <!-- ========== A — LINHAS COM DIVISÓRIA ========== -->
+  <div class="opt">
+    <h2><span class="letra">A</span> Linhas com divisória <small>sem caixas</small></h2>
+    <p class="desc">Projetos como linhas separadas por um filete de 1px, sem cartão.
+    Em andamento mantém a <b>barra à esquerda</b> (igual ao Claude). Menos peso visual, mais projetos por tela.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="lst">
+          <div class="linha barra"><span class="drag">⠿</span><span class="nome">Casa</span><span class="mini on">✓</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Trabalho</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Estudos</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Saúde</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Viagem</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">Divisória de <b>1px</b></span>
+      <span class="spec">Barra ativa <b>mantida</b></span>
+      <span class="spec">Densidade <b>alta</b></span>
+      <span class="spec">Sem caixas</span>
+    </div>
+  </div>
+
+  <!-- ========== B — GRADE 2 COLUNAS ========== -->
+  <div class="opt">
+    <h2><span class="letra">B</span> Grade 2 colunas <small>com progresso</small></h2>
+    <p class="desc">Cartões em grade com nome, contagem e barra de progresso.
+    O projeto em andamento ganha um <b>filete no topo</b>. Bom para muitos projetos curtos.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="grd">
+          <div class="gcard ativo"><span class="nome">Casa</span><span class="meta">5 caixinhas · 3 feitas</span><span class="b"><i style="width:60%"></i></span></div>
+          <div class="gcard"><span class="nome">Trabalho</span><span class="meta">3 caixinhas · 1 feita</span><span class="b"><i style="width:33%"></i></span></div>
+          <div class="gcard"><span class="nome">Estudos</span><span class="meta">8 caixinhas · 2 feitas</span><span class="b"><i style="width:25%"></i></span></div>
+          <div class="gcard"><span class="nome">Saúde</span><span class="meta">2 caixinhas</span><span class="b"><i style="width:0%"></i></span></div>
+          <div class="gcard"><span class="nome">Viagem</span><span class="meta">6 caixinhas · 4 feitas</span><span class="b"><i style="width:66%"></i></span></div>
+          <div class="gcard"><span class="nome">Músicas</span><span class="meta">4 caixinhas · 1 feita</span><span class="b"><i style="width:25%"></i></span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">2 colunas</span>
+      <span class="spec">Progresso <b>no card</b></span>
+      <span class="spec">Ativo = <b>filete topo</b></span>
+      <span class="spec">Densidade <b>alta</b></span>
+    </div>
+  </div>
+
+  <!-- ========== C — LISTA DENSA SEM DIVISÓRIAS ========== -->
+  <div class="opt">
+    <h2><span class="letra">C</span> Só espaçamento <small>nem caixa nem divisória</small></h2>
+    <p class="desc">Nada de caixas nem filetes: os projetos "flutuam" com espaçamento só.
+    O mais limpo possível — o toque é em toda a linha.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="lst" style="gap:14px; padding-top:6px">
+          <div class="linha" style="border-bottom:none; padding:2px 4px"><span class="drag">⠿</span><span class="nome">Casa</span><span class="mini on">✓</span></div>
+          <div class="linha" style="border-bottom:none; padding:2px 4px"><span class="drag">⠿</span><span class="nome">Trabalho</span><span class="mini">☐</span></div>
+          <div class="linha" style="border-bottom:none; padding:2px 4px"><span class="drag">⠿</span><span class="nome">Estudos</span><span class="mini">☐</span></div>
+          <div class="linha" style="border-bottom:none; padding:2px 4px"><span class="drag">⠿</span><span class="nome">Saúde</span><span class="mini">☐</span></div>
+          <div class="linha" style="border-bottom:none; padding:2px 4px"><span class="drag">⠿</span><span class="nome">Viagem</span><span class="mini">☐</span></div>
+          <div class="linha" style="border-bottom:none; padding:2px 4px"><span class="drag">⠿</span><span class="nome">Músicas</span><span class="mini">☐</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">Só <b>espaçamento</b></span>
+      <span class="spec">Nome <b>grande</b></span>
+      <span class="spec">Ações ao <b>segurar</b></span>
+      <span class="spec">Densidade <b>média</b></span>
+    </div>
+  </div>
+
+  <!-- ========== D — SEÇÕES ========== -->
+  <div class="opt">
+    <h2><span class="letra">D</span> Seções <small>em andamento separado</small></h2>
+    <p class="desc">Em vez de só a barra lateral, os projetos em andamento ganham uma
+    <b>seção própria no topo</b> (com a prateleira de recentes acima). Cabeçalhos pequenos como títulos de capítulo.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="m-rot">RECENTES</div>
+        <div class="m-shelf">
+          <div class="m-scard"><span class="n">Casa</span><span class="c">3/5</span><span class="b"><i style="width:60%"></i></span></div>
+          <div class="m-scard"><span class="n">Estudos</span><span class="c">2/8</span><span class="b"><i style="width:25%"></i></span></div>
+          <div class="m-scard"><span class="n">Trabalho</span><span class="c">1/3</span><span class="b"><i style="width:33%"></i></span></div>
+        </div>
+        <div class="m-rot" style="color:var(--accent); margin-top:4px">EM ANDAMENTO</div>
+        <div class="lst">
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Casa</span><span class="mini on">✓</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+        </div>
+        <div class="m-rot" style="margin-top:4px">OUTROS · 4</div>
+        <div class="lst">
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Trabalho</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Saúde</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Viagem</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">Seção <b>EM ANDAMENTO</b></span>
+      <span class="spec">Recentes <b>por cima</b></span>
+      <span class="spec">Cabeçalhos <b>capítulo</b></span>
+      <span class="spec">Densidade <b>média</b></span>
+    </div>
+  </div>
+
+  <!-- ========== E — BLOCOS COM ANEL ========== -->
+  <div class="opt">
+    <h2><span class="letra">E</span> Blocos com anel <small>progresso em %</small></h2>
+    <p class="desc">Um projeto por bloco, com <b>anel de progresso</b> (caixinhas feitas/total)
+    em vez de barra. O nome fica grande; em andamento é marcado pelo anel preenchido.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="lst" style="gap:8px">
+          <div class="linha-caixa"><span class="drag">⠿</span><span class="nome">Casa</span><span class="meta">5 caixinhas</span><span class="anel"><b>60%</b></span></div>
+          <div class="linha-caixa"><span class="drag">⠿</span><span class="nome">Trabalho</span><span class="meta">3 caixinhas</span><span class="anel"><b>33%</b></span></div>
+          <div class="linha-caixa"><span class="drag">⠿</span><span class="nome">Estudos</span><span class="meta">8 caixinhas</span><span class="anel"><b>25%</b></span></div>
+          <div class="linha-caixa"><span class="drag">⠿</span><span class="nome">Saúde</span><span class="meta">2 caixinhas</span><span class="anel"><b>0%</b></span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">Anel de <b>%</b></span>
+      <span class="spec">Nome <b>grande</b></span>
+      <span class="spec">Progresso <b>à primeira vista</b></span>
+      <span class="spec">Densidade <b>média</b></span>
+    </div>
+  </div>
+
+  <!-- ========== F — TIMELINE DE EDIÇÃO ========== -->
+  <div class="opt">
+    <h2><span class="letra">F</span> Linha do tempo <small>última edição</small></h2>
+    <p class="desc">Cada projeto mostra a <b>data da última edição</b> à direita (fonte mono),
+    e os mais recentemente editados aparecem primeiro — sem precisar arrastar para organizar.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="lst">
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Casa</span><span class="mini on">✓</span><span style="font-family:'JetBrains Mono';font-size:8px;color:var(--text2)">hoje</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Estudos</span><span class="mini">☐</span><span style="font-family:'JetBrains Mono';font-size:8px;color:var(--text2)">ontem</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Trabalho</span><span class="mini">☐</span><span style="font-family:'JetBrains Mono';font-size:8px;color:var(--text2)">12/08</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Saúde</span><span class="mini">☐</span><span style="font-family:'JetBrains Mono';font-size:8px;color:var(--text2)">03/08</span></div>
+          <div class="linha"><span class="drag">⠿</span><span class="nome">Viagem</span><span class="mini">☐</span><span style="font-family:'JetBrains Mono';font-size:8px;color:var(--text2)">21/07</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">Data em <b>mono</b></span>
+      <span class="spec">Ordem = <b>edição</b></span>
+      <span class="spec">Menos <b>arrastar</b></span>
+      <span class="spec">Densidade <b>alta</b></span>
+    </div>
+  </div>
+
+  <!-- ========== G — PRÉVIA DA CAIXINHA ========== -->
+  <div class="opt">
+    <h2><span class="letra">G</span> Prévia da caixinha <small>sem abrir</small></h2>
+    <p class="desc">Cada projeto mostra a <b>última caixinha editada</b> (2 linhas em tom fraco)
+    embaixo do nome — dá para reconhecer o conteúdo sem abrir. <span class="tag novo">NOVO</span></p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="lst" style="gap:10px">
+          <div class="linha-caixa" style="flex-direction:column; align-items:stretch; gap:3px">
+            <span style="display:flex; align-items:center; gap:7px"><span class="drag">⠿</span><span class="nome" style="font-size:13px">Casa</span><span class="mini on">✓</span></span>
+            <div class="preview"><span class="c">☐</span> Medir janela do quarto<br>1- Comprar tinta da parede</div>
+          </div>
+          <div class="linha-caixa" style="flex-direction:column; align-items:stretch; gap:3px">
+            <span style="display:flex; align-items:center; gap:7px"><span class="drag">⠿</span><span class="nome" style="font-size:13px">Estudos</span><span class="mini">☐</span></span>
+            <div class="preview">1- Capítulo 4 do livro<br><span class="c">☑</span> Revisar flashcards</div>
+          </div>
+          <div class="linha-caixa" style="flex-direction:column; align-items:stretch; gap:3px">
+            <span style="display:flex; align-items:center; gap:7px"><span class="drag">⠿</span><span class="nome" style="font-size:13px">Trabalho</span><span class="mini">☐</span></span>
+            <div class="preview">1- Enviar relatório<br>2- Agendar reunião</div>
+          </div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">Última <b>caixinha</b></span>
+      <span class="spec">2 linhas <b>fracas</b></span>
+      <span class="spec">Reconhecer <b>sem abrir</b></span>
+      <span class="spec">Densidade <b>média</b></span>
+    </div>
+  </div>
+
+  <!-- ========== H — MODO COMPACTO ========== -->
+  <div class="opt">
+    <h2><span class="letra">H</span> Modo compacto <span class="tag novo" style="margin-left:4px">NOVO</span></h2>
+    <p class="desc">Um interruptor na engrenagem: <b>Compacto</b> (linhas finas, tudo visível)
+    ou <b>Confortável</b> (cartões com folga). Cada um se adapta ao seu ritmo.</p>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="m-appbar"><span class="logo">A</span><span class="t">ADM-projetos</span><span class="sp"></span><span class="m-ic">🔍</span><span class="m-ic">⚙</span></div>
+        <div class="m-rot">COMPACTO</div>
+        <div class="lst">
+          <div class="linha" style="padding:7px 4px"><span class="drag">⠿</span><span class="nome">Casa</span><span class="mini on">✓</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha" style="padding:7px 4px"><span class="drag">⠿</span><span class="nome">Trabalho</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha" style="padding:7px 4px"><span class="drag">⠿</span><span class="nome">Estudos</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha" style="padding:7px 4px"><span class="drag">⠿</span><span class="nome">Saúde</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha" style="padding:7px 4px"><span class="drag">⠿</span><span class="nome">Viagem</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha" style="padding:7px 4px"><span class="drag">⠿</span><span class="nome">Músicas</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+          <div class="linha" style="padding:7px 4px"><span class="drag">⠿</span><span class="nome">Férias</span><span class="mini">☐</span><span class="mini">✎</span><span class="mini del">✕</span></div>
+        </div>
+        <div class="m-fab">+</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">Interruptor <b>Compacto/Confortável</b></span>
+      <span class="spec">7+ projetos <b>por tela</b></span>
+      <span class="spec">Linhas <b>finas</b></span>
+      <span class="spec">Densidade <b>altíssima</b></span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= FLUXO ================= -->
+<section class="fluxo">
+  <h2>Melhorias de fluxo</h2>
+  <p>Comportamentos que mudam o jeito de usar a página inicial — algumas usam o que já foi feito (Recentes + marcador de em andamento).</p>
+
+  <div class="f-grid">
+    <div class="f">
+      <span class="num">1</span>
+      <div>
+        <h3>Deslizar para agir <span class="tag novo">NOVO</span></h3>
+        <p>Deslize a linha <b>para a esquerda</b> para excluir (com Desfazer) e <b>para a direita</b> para renomear — remove as 3 bolinhas da linha e deixa a lista limpa.</p>
+      </div>
+    </div>
+    <div class="f">
+      <span class="num">2</span>
+      <div>
+        <h3>Pino / favorito <span class="tag novo">NOVO</span></h3>
+        <p>Estrela no cartão fixa o projeto <b>no topo</b> (grupo "Fixados"), acima até dos Recentes. Combina com a ideia de seções (D).</p>
+      </div>
+    </div>
+    <div class="f">
+      <span class="num">3</span>
+      <div>
+        <h3>Em andamento virando seção <span class="tag novo">NOVO</span></h3>
+        <p>O marcador de hoje (barra à esquerda) vira um <b>agrupamento</b>: "EM ANDAMENTO" em cima e o resto embaixo — o marcador continua, mas o projeto ativo fica impossível de passar batido.</p>
+      </div>
+    </div>
+    <div class="f">
+      <span class="num">4</span>
+      <div>
+        <h3>Recentes com mini-ações <span class="tag novo">NOVO</span></h3>
+        <p>Na prateleira, toque <b>longo</b> num cartão abre um menu rápido (Renomear / Em andamento / Excluir) — sem sair da página inicial.</p>
+      </div>
+    </div>
+    <div class="f">
+      <span class="num">5</span>
+      <div>
+        <h3>Busca com atalho <span class="tag tem">JÁ TEM</span></h3>
+        <p>A busca por nome já existe — o ganho é <b>abrir pelo teclado</b> quando a prateleira está em foco e <b>mostrar contagem</b> ("3 resultados") no campo.</p>
+      </div>
+    </div>
+    <div class="f">
+      <span class="num">6</span>
+      <div>
+        <h3>Reordenar sem bolinhas <span class="tag tem">JÁ TEM</span></h3>
+        <p>O arrastar com puxador já existe — em layouts de linha (A/C/H) o puxador fica mais discreto e a linha inteira vira alvo de toque.</p>
+      </div>
+    </div>
+    <div class="f">
+      <span class="num">7</span>
+      <div>
+        <h3>Excluir com Desfazer <span class="tag tem">JÁ TEM</span></h3>
+        <p>Já existe. Em qualquer layout novo, o Desfazer continua sendo o seguro contra dedo errante (4s para voltar).</p>
+      </div>
+    </div>
+    <div class="f">
+      <span class="num">8</span>
+      <div>
+        <h3>Densidade ajustável <span class="tag novo">NOVO</span></h3>
+        <p>O mesmo interruptor do modo compacto (H) também afeta a <b>página do projeto</b>: mais caixinhas visíveis ao mesmo tempo quando Compacto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>Como escolher:</b> responda com a letra do layout (A–H) e os números de fluxo que quiser —
+  ex.: <b>"B + 1, 2"</b>. Tudo pode ser combinado com o tema Claude Code já aplicado.
+</footer>
+
+</body>
+</html>
