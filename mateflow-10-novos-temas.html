@@ -91,36 +91,36 @@ footer b{color:#E8A33D}
 <div class="pills" id="pills"></div>
 </div>
 
-<div class="view-tabs">
-<button data-view="board" class="active">♔ Tabuleiro</button>
-<button data-view="buttons">● Botões</button>
-<button data-view="nav">☰ Navegação</button>
-</div>
+<div style="max-width:1180px;margin:0 auto;text-align:center;color:#9aa3ae;font-size:12px">↓ Preview interativo mostra tudo: <b style="color:#e8ebee">Tabuleiro + Botões + Navegação</b> — troque o tema acima</div>
 
 <div class="preview-wrap">
 <div class="phone" id="phone">
 <div class="phone-head"><strong>Mateflow</strong><span>⚙ 28px</span></div>
 
 <div id="view-board">
+<div style="padding:8px 12px 0;font-size:10px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;font-weight:800">— Tabuleiro</div>
 <div class="banner"><b id="bannerText">● Brancas jogam • lance 1 de 3</b><small>Problema 42 · Médio</small><div class="bars"><div class="bar on"></div><div class="bar"></div><div class="bar"></div></div></div>
 <div class="board" id="board"></div>
 <div class="actions"><div class="act">💡</div><div class="act">⏸</div><div class="act">↻</div><div class="act primary">→</div></div>
-<div class="meta"><span class="chip">⏱ 00:42</span><span class="chip">♔ Xeque-mate!</span><span class="chip" id="hexAccent">accent</span></div>
 </div>
 
-<div id="view-buttons" class="hidden">
-<div class="big-btn"><div class="icon">♔</div><div><strong>Mates</strong><br><small>750 problemas · escolha nível</small></div><span style="margin-left:auto">›</span></div>
-<div class="big-btn"><div class="icon">⚡</div><div><strong>Tática</strong><br><small>Espeto · Descoberta · Sacrifício</small></div><span style="margin-left:auto">›</span></div>
-<div class="big-btn"><div class="icon">🛡</div><div><strong>Defesa</strong><br><small>5 subtemas · 417 problemas</small></div><span style="margin-left:auto">›</span></div>
+<div style="height:1px;background:var(--border);margin:4px 12px"></div>
+<div id="view-buttons">
+<div style="padding:8px 12px 0;font-size:10px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;font-weight:800">— Botões (preenchidos Cread)</div>
+<div class="big-btn"><div class="icon">♔</div><div><strong>Mates</strong><br><small>750 problemas · escolha nível</small></div><span style="margin-left:auto;color:var(--dim)">›</span></div>
+<div class="big-btn"><div class="icon">⚡</div><div><strong>Tática</strong><br><small>Espeto · Descoberta · Sacrifício</small></div><span style="margin-left:auto;color:var(--dim)">›</span></div>
+<div class="big-btn"><div class="icon">🛡</div><div><strong>Defesa</strong><br><small>5 subtemas · 417 problemas</small></div><span style="margin-left:auto;color:var(--dim)">›</span></div>
 <div class="btn-row"><span class="btn btn-filled">Jogar</span><span class="btn btn-outline">Nível</span><span class="btn btn-ghost">Cancelar</span><span class="btn btn-danger">Sair</span></div>
-<div class="actions"><div class="act">💡</div><div class="act">⏸</div><div class="act">↻</div><div class="act primary">→</div></div>
-<div class="btn-row"><span class="btn btn-filled" style="flex:1;text-align:center">● Brancas jogam</span></div>
+<div class="btn-row"><span class="btn btn-filled" style="flex:1;text-align:center">● Brancas jogam — Filled</span></div>
+<div class="btn-row" style="opacity:.9"><span class="btn btn-outline" style="flex:1;text-align:center">Outline — Tailwind (não usar)</span></div>
 </div>
 
-<div id="view-nav" class="hidden">
-<div class="drawer"><div class="drawer-head">☰ Menu Mateflow</div><a class="active">♔ Mates <small style="float:right">750</small></a><a>⚡ Tática</a><a>🛡 Defesa</a><a>📖 Aberturas</a><a>⚙ Configurações → Tema</a></div>
+<div style="height:1px;background:var(--border);margin:4px 12px"></div>
+<div id="view-nav">
+<div style="padding:8px 12px 0;font-size:10px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;font-weight:800">— Navegação (menus)</div>
+<div class="drawer"><div class="drawer-head">☰ Menu Mateflow</div><a class="active">♔ Mates <small style="float:right">750</small></a><a>⚡ Tática</a><a>🛡 Defesa</a><a>📖 Aberturas</a><a>⚙ Configurações → Tema ▾</a></div>
 <div class="nav-bar"><span class="nav-item active">♔<br>Mates</span><span class="nav-item">⚡<br>Tática</span><span class="nav-item">🛡<br>Defesa</span><span class="nav-item">⚙<br>Ajustes</span></div>
-<div class="btn-row"><span class="btn btn-filled">Tema atual</span><span class="btn btn-ghost">Azul Royal ▾</span></div>
+<div class="meta" style="margin-top:8px"><span class="chip">⏱ 00:42</span><span class="chip" id="hexAccent">accent</span><span class="chip">Tema ▾</span></div>
 </div>
 
 </div>
@@ -181,14 +181,7 @@ function apply(t){
  document.getElementById('code').textContent=`static const ${t.id}=AppPalette(id:'${t.id}', background:Color(0xFF${t.bg.slice(1)}), accent:Color(0xFF${t.accent.slice(1)}), light:Color(0xFF${t.light.slice(1)}), dark:Color(0xFF${t.dark.slice(1)}))`;
  buildBoard(document.getElementById('board'), t.light, t.dark);
 }
-document.querySelectorAll('.view-tabs button').forEach(b=>{
- b.onclick=()=>{
-  document.querySelectorAll('.view-tabs button').forEach(x=>x.classList.remove('active')); b.classList.add('active');
-  document.getElementById('view-board').classList.toggle('hidden', b.dataset.view!=='board');
-  document.getElementById('view-buttons').classList.toggle('hidden', b.dataset.view!=='buttons');
-  document.getElementById('view-nav').classList.toggle('hidden', b.dataset.view!=='nav');
- }
-});
+
 themes.forEach(t=>{
  const b=document.createElement('button'); b.className='pill'; b.dataset.id=t.id; b.textContent=t.nome; b.style.background=t.accent; b.style.color=t.onAccent; b.onclick=()=>apply(t); pills.appendChild(b);
  const card=document.createElement('div'); card.className='card';
