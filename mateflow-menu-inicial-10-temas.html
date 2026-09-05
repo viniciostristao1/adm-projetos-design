@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mateflow — Menu Inicial — 10 temas preenchidos</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,Manrope,sans-serif;background:#080a0c;color:#e8ebee;padding:18px 14px 60px}
+header{max-width:1280px;margin:0 auto 14px;text-align:center}
+header h1{font-size:28px;font-weight:900}
+header p{color:#9aa3ae;font-size:13px;line-height:1.6;margin-top:8px}
+header p b{color:#e8ebee}
+.tag{display:inline-block;background:#E8A33D;color:#111;padding:3px 10px;border-radius:20px;font-weight:800;font-size:11px}
+.pills{max-width:1280px;margin:16px auto;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pill{padding:8px 14px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:2px solid transparent}
+.pill.active{border-color:#fff;box-shadow:0 0 0 2px currentColor}
+.grid{max-width:1280px;margin:16px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px}
+.card{border-radius:20px;overflow:hidden;border:3px solid var(--border);background:var(--bg);display:flex;flex-direction:column}
+.card-top{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-top strong{font-size:13px;color:var(--text)}
+.card-top span{font-size:11px;color:var(--dim)}
+.phone{padding:16px 16px 18px;display:flex;flex-direction:column;gap:12px}
+.logo-area{display:flex;flex-direction:column;align-items:center;gap:10px;padding:10px 0 6px}
+.logo{width:84px;height:84px;border-radius:20px;background:#111;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 8px 20px rgba(0,0,0,.5)}
+.logo-area h2{font-size:18px;font-weight:900;color:var(--text);letter-spacing:.02em}
+.rating{font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;background:var(--surfaceAlt);border:1px solid var(--border);color:var(--text)}
+.big{background:var(--surface);border:2px solid var(--border);border-radius:16px;padding:14px 14px;display:flex;gap:12px;align-items:center}
+.big .ic{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;background:var(--surfaceAlt);border:1px solid var(--border);color:var(--accent);flex-shrink:0}
+.big strong{font-size:15px;color:var(--text)}
+.big small{font-size:12px;color:var(--dim)}
+.big .arrow{margin-left:auto;color:var(--faint);font-size:18px}
+.foot{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 14px}
+.swatch{width:36px;height:36px;border-radius:8px;border:2px solid rgba(0,0,0,.15);font-size:7px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.meta{padding:10px 14px;border-top:2px solid var(--border);background:var(--surface);display:flex;gap:6px;flex-wrap:wrap}
+.meta span{font-size:10px;padding:4px 8px;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--text)}
+footer{max-width:700px;margin:30px auto 0;text-align:center;color:#9aa3ae;font-size:12px;line-height:1.6}
+footer b{color:#E8A33D}
+.phone-focus{max-width:1280px;margin:16px auto;display:grid;grid-template-columns:420px 1fr;gap:18px}
+@media(max-width:900px){.phone-focus{grid-template-columns:1fr}}
+.focus-card{border-radius:20px;overflow:hidden;border:3px solid var(--border);background:var(--bg)}
+.details{background:#14171a;border:1px solid #23282d;border-radius:16px;padding:16px}
+.details h3{font-size:14px;font-weight:900;margin-bottom:6px}
+.details p{font-size:12px;color:#9aa3ae;line-height:1.6}
+.sw-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.sw{width:62px;height:62px;border-radius:12px;border:2px solid #23282d;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9px;font-weight:800;text-align:center}
+</style></head><body>
+<header>
+<h1>Mateflow — Menu Inicial em 10 temas</h1>
+<p><span class="tag">SÓ MENU INICIAL</span> Cada card é o <b>menu inicial exato</b> (logo + 4 BigButtons + pill rating) com tema preenchido Cread. <b>Sem tabuleiro.</b><br>Clique no card para focar acima. Pills no topo trocam o <b>preview grande</b>.</p>
+</header>
+
+<div class="pills" id="pills"></div>
+
+<div class="phone-focus" id="focus">
+<div class="focus-card" id="focusPhone"></div>
+<div class="details">
+<h3 id="focusTitle"></h3>
+<p id="focusDesc"></p>
+<div class="sw-row" id="focusSw"></div>
+<pre id="focusCode" style="margin-top:12px;background:#0b0d0f;color:#9aa3ae;padding:10px;border-radius:10px;font-size:11px;overflow:auto"></pre>
+</div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>Escolha: <b>“quero o 7 e o 9”</b> — aplico como <b>AppPalette</b> em <b>app/lib/theme/app_colors.dart</b> e gero APK. Arquivo: <b>mateflow-menu-inicial-10-temas.html</b></footer>
+
+<script>
+const themes=[
+{ id:'grafite', nome:'1 Grafite & Âmbar', bg:'#1A1A1E', surface:'#232326', surfaceAlt:'#2E2E30', border:'#3A3A3E', text:'#FAFAFA', dim:'#9AA3B2', faint:'#6B7280', accent:'#F2B705', onAccent:'#111', desc:'Dark grafite sólido + âmbar 100% nos ícones e bordas. Mais contraste Cread.' },
+{ id:'floresta', nome:'2 Floresta Densa', bg:'#0F2A1D', surface:'#143625', surfaceAlt:'#1A4A2E', border:'#2E6B3A', text:'#FFF8E7', dim:'#A8C4B0', faint:'#6B8F7A', accent:'#4CAF7D', onAccent:'#0F2A1D', desc:'Fundo floresta profundo, cards verde-escuro sólido, ícones verde vivo.' },
+{ id:'terracota', nome:'3 Terracota Bloco', bg:'#FFF5E6', surface:'#F2E8D6', surfaceAlt:'#EADFC8', border:'#D2B89A', text:'#382E20', dim:'#8A7355', faint:'#6B5A4A', accent:'#B5652E', onAccent:'#fff', desc:'Papel bege + terracota 100% — evolução preenchida do tema atual.' },
+{ id:'noite', nome:'4 Noite Estrelada', bg:'#0B1026', surface:'#121A33', surfaceAlt:'#1A2347', border:'#2A3A5E', text:'#E8EAF6', dim:'#8A95C2', faint:'#5A648A', accent:'#FFD54F', onAccent:'#0B1026', desc:'Noite profunda + amarelo estrelado sólido nos ícones.' },
+{ id:'carmesim', nome:'5 Carmesim Editorial', bg:'#4A0F14', surface:'#5A1A1F', surfaceAlt:'#6B242A', border:'#8B2F37', text:'#FFF8E1', dim:'#D4B8B2', faint:'#9A7A7A', accent:'#C62828', onAccent:'#fff', desc:'Bordô editorial sólido + creme, ícones vermelho vivo.' },
+{ id:'petroleo', nome:'6 Petróleo Bloco', bg:'#0B1E2A', surface:'#12394A', surfaceAlt:'#174A5E', border:'#2A5F73', text:'#E0F2F1', dim:'#8AB4C2', faint:'#5A8A9A', accent:'#00ACC1', onAccent:'#0B1E2A', desc:'Petróleo escuro + ciano 100% nos ícones e borda da logo.' },
+{ id:'mostarda', nome:'7 Mostarda & Carvão ★', bg:'#1E1E1E', surface:'#2B2B2B', surfaceAlt:'#3A3A3A', border:'#4A4A4A', text:'#FFF8E7', dim:'#B8B8B8', faint:'#8A8A8A', accent:'#E9C46A', onAccent:'#1E1E1E', desc:'Favorito Cread — carvão sólido + mostarda 100%.' },
+{ id:'marfim', nome:'8 Bordô & Marfim', bg:'#FFF5E1', surface:'#FFF0D4', surfaceAlt:'#F2E0B8', border:'#D2B89A', text:'#4A0F14', dim:'#8A5A5A', faint:'#6B4A4A', accent:'#AD1457', onAccent:'#fff', desc:'Marfim claro + bordô sólido nos ícones.' },
+{ id:'cread', nome:'9 Verde Cread ★', bg:'#102A1A', surface:'#1B4D2E', surfaceAlt:'#234F32', border:'#2E6B3A', text:'#F4EAD5', dim:'#B8C9B8', faint:'#8AA08A', accent:'#81C784', onAccent:'#102A1A', desc:'Verde selva Cread + bege claro, ícones verde claro.' },
+{ id:'premium', nome:'10 Escuro Premium', bg:'#0A0A0A', surface:'#121212', surfaceAlt:'#1E1E1E', border:'#2E2E2E', text:'#EAEAEA', dim:'#9A9A9A', faint:'#6B6B6B', accent:'#FFC857', onAccent:'#0A0A0A', desc:'Preto premium + âmbar sólido nos ícones.' },
+];
+function phoneHTML(t, large){
+ return `<div style="background:${t.bg};color:${t.text};padding:14px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid ${t.border};background:${t.accent};color:${t.onAccent}"><strong>Mateflow</strong><span style="font-size:11px">⚙ 28px</span></div>
+ <div class="phone" style="--bg:${t.bg};--surface:${t.surface};--surfaceAlt:${t.surfaceAlt};--border:${t.border};--text:${t.text};--dim:${t.dim};--accent:${t.accent}">
+ <div class="logo-area"><div class="logo" style="border-color:${t.accent}">♔</div><h2>Mateflow</h2><div class="rating">♔ 1250 • ${t.nome.slice(2)}</div></div>
+ <div class="big"><div class="ic">♔</div><div><strong>Mates</strong><br><small>750 problemas · níveis</small></div><span class="arrow">›</span></div>
+ <div class="big"><div class="ic">⚡</div><div><strong>Tática</strong><br><small>Espeto · Descoberta · Sacrifício</small></div><span class="arrow">›</span></div>
+ <div class="big"><div class="ic">🛡</div><div><strong>Defesa</strong><br><small>5 subtemas · 417 problemas</small></div><span class="arrow">›</span></div>
+ <div class="big"><div class="ic">📖</div><div><strong>Aberturas</strong><br><small>Do zero à transição</small></div><span class="arrow">›</span></div>
+ </div>`;
+}
+const pills=document.getElementById('pills');
+const grid=document.getElementById('grid');
+let active=themes[6];
+function apply(t){
+ active=t;
+ document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('active', p.dataset.id===t.id));
+ const fp=document.getElementById('focusPhone');
+ fp.style.setProperty('--bg', t.bg); fp.style.setProperty('--surface', t.surface); fp.style.setProperty('--surfaceAlt', t.surfaceAlt);
+ fp.style.setProperty('--border', t.border); fp.style.setProperty('--text', t.text); fp.style.setProperty('--dim', t.dim); fp.style.setProperty('--accent', t.accent);
+ fp.innerHTML=phoneHTML(t,true);
+ document.getElementById('focusTitle').textContent=t.nome;
+ document.getElementById('focusDesc').textContent=t.desc+' — Header '+t.accent+' 100% preenchido, BigButtons '+t.surface+' sólido, ícones '+t.accent+' sólido, sem outline Tailwind.';
+ document.getElementById('focusSw').innerHTML=['bg','surface','surfaceAlt','border','text','accent'].map(k=>{
+  const v=t[k]; return `<div class="sw" style="background:${v};color:${k==='accent'?'#111':t.text}">${k}<small>${v}</small></div>`;
+ }).join('');
+ document.getElementById('focusCode').textContent=`AppPalette ${t.id} = AppPalette(\n  background: Color(0xFF${t.bg.slice(1)}),\n  surface: Color(0xFF${t.surface.slice(1)}),\n  accent: Color(0xFF${t.accent.slice(1)}),\n)`;
+}
+themes.forEach(t=>{
+ const b=document.createElement('button'); b.className='pill'; b.dataset.id=t.id; b.textContent=t.nome; b.style.background=t.accent; b.style.color=t.onAccent; b.onclick=()=>{apply(t); window.scrollTo({top:0,behavior:'smooth'})}; pills.appendChild(b);
+ const card=document.createElement('div'); card.className='card';
+ card.style.setProperty('--bg', t.bg); card.style.setProperty('--surface', t.surface); card.style.setProperty('--surfaceAlt', t.surfaceAlt);
+ card.style.setProperty('--border', t.border); card.style.setProperty('--text', t.text); card.style.setProperty('--dim', t.dim); card.style.setProperty('--accent', t.accent);
+ card.style.cursor='pointer'; card.onclick=()=>apply(t);
+ card.innerHTML=`<div class="card-top"><strong>${t.nome}</strong><span>${t.accent}</span></div>${phoneHTML(t,false)}<div class="foot"><span class="swatch" style="background:${t.bg};color:${t.text}">bg</span><span class="swatch" style="background:${t.surface};color:${t.text}">sf</span><span class="swatch" style="background:${t.accent};color:${t.onAccent}">ac</span><span style="font-size:11px;color:${t.dim}">${t.desc}</span></div>`;
+ grid.appendChild(card);
+});
+apply(active);
+</script></body></html>
