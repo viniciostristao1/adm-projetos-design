@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mateflow — 10 novos temas preenchidos (Cread)</title>
+<title>Mateflow — 10 novos temas preenchidos (Cread) — Botões & Navegação</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,Manrope,sans-serif;background:#0b0d0f;color:#e8ebee;padding:18px 14px 60px}
@@ -17,9 +17,12 @@ header p span.tag{display:inline-block;background:#E8A33D;color:#111;padding:2px
 .pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .pill{padding:8px 14px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;border:2px solid transparent;transition:.15s}
 .pill.active{border-color:#fff;box-shadow:0 0 0 2px currentColor}
-.preview-wrap{max-width:1180px;margin:18px auto;display:grid;grid-template-columns:1fr 360px;gap:18px}
+.view-tabs{max-width:1180px;margin:0 auto;display:flex;gap:8px;justify-content:center}
+.view-tabs button{padding:8px 16px;border-radius:20px;border:1px solid #2a333e;background:#14171a;color:#9aa3ae;font-weight:800;font-size:12px;cursor:pointer}
+.view-tabs button.active{background:#E8A33D;color:#111;border-color:#E8A33D}
+.preview-wrap{max-width:1180px;margin:14px auto;display:grid;grid-template-columns:1fr 360px;gap:18px}
 @media(max-width:900px){.preview-wrap{grid-template-columns:1fr}}
-.phone{border-radius:22px;overflow:hidden;border:3px solid #23282d;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,.6);transition:.2s}
+.phone{border-radius:22px;overflow:hidden;border:3px solid #23282d;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,.6);transition:.2s;min-height:560px}
 .phone-head{background:var(--accent);color:var(--onAccent);padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
 .phone-head strong{font-size:15px;font-weight:900}
 .phone-head span{font-size:11px;opacity:.9}
@@ -34,6 +37,23 @@ header p span.tag{display:inline-block;background:#E8A33D;color:#111;padding:2px
 .actions{display:flex;gap:10px;justify-content:center;padding:8px 12px}
 .act{width:44px;height:44px;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:18px;background:var(--surfaceAlt);border:2px solid var(--border);color:var(--text)}
 .act.primary{background:var(--accent);color:var(--onAccent);border-color:var(--accent)}
+.big-btn{margin:8px 12px;background:var(--surface);border:2px solid var(--border);border-radius:16px;padding:14px;display:flex;gap:12px;align-items:center}
+.big-btn .icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--surfaceAlt);border:1px solid var(--border);color:var(--accent)}
+.big-btn strong{font-size:14px;color:var(--text)}
+.big-btn small{font-size:11px;color:var(--dim)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;padding:8px 12px}
+.btn{padding:10px 16px;border-radius:12px;font-size:12px;font-weight:800;border:2px solid transparent;cursor:pointer}
+.btn-filled{background:var(--accent);color:var(--onAccent)}
+.btn-outline{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn-ghost{background:var(--surfaceAlt);color:var(--text);border-color:var(--border)}
+.btn-danger{background:#C0392B;color:#fff}
+.nav-bar{display:flex;justify-content:space-around;padding:10px 8px;background:var(--surface);border-top:2px solid var(--border)}
+.nav-item{font-size:11px;font-weight:800;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:2px}
+.nav-item.active{color:var(--accent)}
+.drawer{margin:8px 12px;background:var(--surface);border:2px solid var(--border);border-radius:12px;overflow:hidden}
+.drawer-head{background:var(--accent);color:var(--onAccent);padding:12px;font-weight:900;font-size:13px}
+.drawer a{display:block;padding:10px 14px;font-size:12px;font-weight:600;color:var(--text);border-top:1px solid var(--border);text-decoration:none}
+.drawer a.active{background:var(--surfaceAlt);color:var(--accent)}
 .meta{margin:0 12px 12px;background:var(--surfaceAlt);border-radius:10px;padding:10px;display:flex;gap:8px;flex-wrap:wrap}
 .chip{font-size:11px;padding:4px 8px;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--text)}
 .details{max-width:1180px;margin:0 auto;background:#14171a;border:1px solid #23282d;border-radius:16px;padding:14px}
@@ -41,39 +61,68 @@ header p span.tag{display:inline-block;background:#E8A33D;color:#111;padding:2px
 .swatches{display:flex;gap:8px;flex-wrap:wrap}
 .sw{width:56px;height:56px;border-radius:12px;border:2px solid #23282d;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9px;font-weight:800;text-align:center;line-height:1.2}
 .sw small{font-weight:600;opacity:.8}
-.grid{max-width:1180px;margin:18px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.grid{max-width:1180px;margin:18px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
 .card{border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;border:2px solid var(--border);background:var(--bg);color:var(--text);transition:.2s}
 .card h2{font-size:14px;font-weight:900;display:flex;align-items:center;gap:8px}
 .card h2 small{font-size:11px;opacity:.7;font-weight:600}
 .card p{font-size:11px;line-height:1.5;opacity:.8}
-.mini-board{height:140px;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:repeat(8,1fr);border:2px solid var(--border)}
-.mini-board .sq{font-size:12px}
-.colors{display:flex;gap:6px;flex-wrap:wrap}
-.dot{width:28px;height:28px;border-radius:14px;border:2px solid rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800}
+.mini-board{height:120px;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:repeat(8,1fr);border:2px solid var(--border)}
+.mini-board .sq{font-size:10px}
+.mini-btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.mini-btn{padding:6px 10px;border-radius:8px;font-size:10px;font-weight:800}
+.mini-nav{display:flex;justify-content:space-around;padding:6px;background:var(--surface);border-radius:8px;border:1px solid var(--border);font-size:10px;font-weight:800}
+.colors{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.dot{width:26px;height:26px;border-radius:13px;border:2px solid rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:800}
 footer{max-width:700px;margin:30px auto 0;text-align:center;color:#9aa3ae;font-size:12px;line-height:1.6}
 footer b{color:#E8A33D}
+.hidden{display:none}
 </style></head><body>
 <header>
 <h1>Mateflow — 10 novos temas preenchidos</h1>
-<p>Estilo <b>Cread</b>: <b>preenchido, denso, sólido</b> — menos Tailwind outline, mais bloco. <span class="tag">interativo</span> Troque no seletor e veja o app como ficaria.<br>Todos com header 100% preenchido, banner sólido, tabuleiro borda grossa, botões com fundo.</p>
+<p>Estilo <b>Cread</b>: <b>preenchido, denso, sólido</b> — foco em <b>botões & navegação</b>. <span class="tag">interativo</span> Troque tema e veja botões + menus como ficariam.<br>Header 100% sólido • BigButtons preenchidos • Botões circulares sólidos • BottomNav & Drawer sólidos</p>
 </header>
 <div class="apk">
-<a href="https://github.com/viniciostristao1/xadrez_mate/releases/latest/download/xadrez-mate.apk">⬇ Baixar APK v0.15.0 atual</a>
-<a class="sec" href="#grid">↓ ver 10 temas abaixo</a>
+<a href="https://github.com/viniciostristao1/xadrez_mate/releases/latest/download/xadrez-mate.apk">⬇ Baixar APK v0.15.0</a>
+<a class="sec" href="#grid">↓ ver 10 temas</a>
 </div>
 
 <div class="selector">
-<h3>↔ Toque para trocar — preview interativo</h3>
+<h3>↔ Toque para trocar tema</h3>
 <div class="pills" id="pills"></div>
+</div>
+
+<div class="view-tabs">
+<button data-view="board" class="active">♔ Tabuleiro</button>
+<button data-view="buttons">● Botões</button>
+<button data-view="nav">☰ Navegação</button>
 </div>
 
 <div class="preview-wrap">
 <div class="phone" id="phone">
 <div class="phone-head"><strong>Mateflow</strong><span>⚙ 28px</span></div>
+
+<div id="view-board">
 <div class="banner"><b id="bannerText">● Brancas jogam • lance 1 de 3</b><small>Problema 42 · Médio</small><div class="bars"><div class="bar on"></div><div class="bar"></div><div class="bar"></div></div></div>
 <div class="board" id="board"></div>
 <div class="actions"><div class="act">💡</div><div class="act">⏸</div><div class="act">↻</div><div class="act primary">→</div></div>
-<div class="meta"><span class="chip">⏱ 00:42</span><span class="chip">+30% surpresa</span><span class="chip">♔ Xeque-mate!</span><span class="chip" id="hexAccent">accent</span></div>
+<div class="meta"><span class="chip">⏱ 00:42</span><span class="chip">♔ Xeque-mate!</span><span class="chip" id="hexAccent">accent</span></div>
+</div>
+
+<div id="view-buttons" class="hidden">
+<div class="big-btn"><div class="icon">♔</div><div><strong>Mates</strong><br><small>750 problemas · escolha nível</small></div><span style="margin-left:auto">›</span></div>
+<div class="big-btn"><div class="icon">⚡</div><div><strong>Tática</strong><br><small>Espeto · Descoberta · Sacrifício</small></div><span style="margin-left:auto">›</span></div>
+<div class="big-btn"><div class="icon">🛡</div><div><strong>Defesa</strong><br><small>5 subtemas · 417 problemas</small></div><span style="margin-left:auto">›</span></div>
+<div class="btn-row"><span class="btn btn-filled">Jogar</span><span class="btn btn-outline">Nível</span><span class="btn btn-ghost">Cancelar</span><span class="btn btn-danger">Sair</span></div>
+<div class="actions"><div class="act">💡</div><div class="act">⏸</div><div class="act">↻</div><div class="act primary">→</div></div>
+<div class="btn-row"><span class="btn btn-filled" style="flex:1;text-align:center">● Brancas jogam</span></div>
+</div>
+
+<div id="view-nav" class="hidden">
+<div class="drawer"><div class="drawer-head">☰ Menu Mateflow</div><a class="active">♔ Mates <small style="float:right">750</small></a><a>⚡ Tática</a><a>🛡 Defesa</a><a>📖 Aberturas</a><a>⚙ Configurações → Tema</a></div>
+<div class="nav-bar"><span class="nav-item active">♔<br>Mates</span><span class="nav-item">⚡<br>Tática</span><span class="nav-item">🛡<br>Defesa</span><span class="nav-item">⚙<br>Ajustes</span></div>
+<div class="btn-row"><span class="btn btn-filled">Tema atual</span><span class="btn btn-ghost">Azul Royal ▾</span></div>
+</div>
+
 </div>
 <div class="details">
 <h4 id="detailTitle">Tema</h4>
@@ -85,58 +134,41 @@ footer b{color:#E8A33D}
 
 <div class="grid" id="grid"></div>
 
-<footer>Como escolher: responda <b>“quero o 7 e o 9”</b> ou <b>“misturar header do 7 com tabuleiro do 2”</b>. Eu implemento como `AppPalette` em `app_colors.dart` em &lt;5 min e gero novo APK no link fixo.<br><br>Arquivo: <b>adm-design-site/mateflow-10-novos-temas.html</b> — 100% estático, sem instalar.</footer>
+<footer>Como escolher: responda <b>“quero o 7 (botões) com navegação do 9”</b>. Eu aplico `AppPalette` + `AppTheme` + `BottomNav` em &lt;5 min.<br>Arquivo: <b>mateflow-10-novos-temas.html</b> — estático, sem instalar.</footer>
 
 <script>
 const themes=[
-{ id:'grafite', nome:'1 Grafite & Âmbar Sólido', bg:'#1A1A1E', surface:'#232326', surfaceAlt:'#2E2E30', border:'#3A3A3E', text:'#FAFAFA', dim:'#9AA3B2', faint:'#6B7280', accent:'#F2B705', onAccent:'#111', light:'#EAE3C8', dark:'#8B7355', desc:'Dark preenchido — header âmbar 100%, cards grafite sólido, tabuleiro bege/madeira. Mais Cread, zero outline.' },
-{ id:'floresta', nome:'2 Floresta Densa', bg:'#0F2A1D', surface:'#143625', surfaceAlt:'#1A4A2E', border:'#2E6B3A', text:'#FFF8E7', dim:'#A8C4B0', faint:'#6B8F7A', accent:'#4CAF7D', onAccent:'#0F2A1D', light:'#FFF8E7', dark:'#2E7D32', desc:'Verde bloco — fundo floresta profundo, banner creme sólido, tabuleiro creme/verde. Denso e orgânico.' },
-{ id:'terracota2', nome:'3 Terracota Bloco v2', bg:'#FFF5E6', surface:'#F2E8D6', surfaceAlt:'#EADFC8', border:'#D2B89A', text:'#382E20', dim:'#8A7355', faint:'#6B5A4A', accent:'#B5652E', onAccent:'#fff', light:'#FFF5E6', dark:'#B5652E', desc:'Evolução do Terracota atual — header 100% terracota, sem outline, tabuleiro claro/terracota.' },
-{ id:'noite', nome:'4 Noite Estrelada', bg:'#0B1026', surface:'#121A33', surfaceAlt:'#1A2347', border:'#2A3A5E', text:'#E8EAF6', dim:'#8A95C2', faint:'#5A648A', accent:'#FFD54F', onAccent:'#0B1026', light:'#E8EAF6', dark:'#1A2347', desc:'Noite profunda — amarelo sólido estrelado, contraste alto, tabuleiro claro/noite.' },
-{ id:'carmesim', nome:'5 Carmesim Editorial Sólido', bg:'#4A0F14', surface:'#5A1A1F', surfaceAlt:'#6B242A', border:'#8B2F37', text:'#FFF8E1', dim:'#D4B8B2', faint:'#9A7A7A', accent:'#C62828', onAccent:'#fff', light:'#FFF8E1', dark:'#4A0F14', desc:'Revival Carmesim & Ouro mas 100% preenchido — bordô header, creme sólido.' },
-{ id:'petroleo', nome:'6 Petróleo Bloco', bg:'#0B1E2A', surface:'#12394A', surfaceAlt:'#174A5E', border:'#2A5F73', text:'#E0F2F1', dim:'#8AB4C2', faint:'#5A8A9A', accent:'#00ACC1', onAccent:'#0B1E2A', light:'#E0F2F1', dark:'#12394A', desc:'Azul petróleo denso — ciano sólido, tabuleiro claro/petróleo, frio premium.' },
-{ id:'mostarda', nome:'7 Mostarda & Carvão ★ Cread', bg:'#1E1E1E', surface:'#2B2B2B', surfaceAlt:'#3A3A3A', border:'#4A4A4A', text:'#FFF8E7', dim:'#B8B8B8', faint:'#8A8A8A', accent:'#E9C46A', onAccent:'#1E1E1E', light:'#FFF8E7', dark:'#6B4A2E', desc:'Favorito Cread — carvão + mostarda 100% sólida, tabuleiro creme/madeira queimada.' },
-{ id:'bordo', nome:'8 Bordô & Marfim', bg:'#FFF5E1', surface:'#FFF0D4', surfaceAlt:'#F2E0B8', border:'#D2B89A', text:'#4A0F14', dim:'#8A5A5A', faint:'#6B4A4A', accent:'#AD1457', onAccent:'#fff', light:'#FFF5E1', dark:'#6E1D27', desc:'Revista preenchida — marfim sólido, bordô acento, tabuleiro marfim/bordô.' },
-{ id:'cread', nome:'9 Verde Cread Clássico ★', bg:'#102A1A', surface:'#1B4D2E', surfaceAlt:'#234F32', border:'#2E6B3A', text:'#F4EAD5', dim:'#B8C9B8', faint:'#8AA08A', accent:'#81C784', onAccent:'#102A1A', light:'#F4EAD5', dark:'#1B4D2E', desc:'Mais fiel ao Cread — verde selva preenchido, bege claro, acento verde claro.' },
-{ id:'premium', nome:'10 Escuro Premium Sólido', bg:'#0A0A0A', surface:'#121212', surfaceAlt:'#1E1E1E', border:'#2E2E2E', text:'#EAEAEA', dim:'#9A9A9A', faint:'#6B6B6B', accent:'#FFC857', onAccent:'#0A0A0A', light:'#EAEAEA', dark:'#4A4A4A', desc:'Zero outline — 3 tons de preto + âmbar premium sólido, tabuleiro claro/grafite.' },
+{ id:'grafite', nome:'1 Grafite & Âmbar Sólido', bg:'#1A1A1E', surface:'#232326', surfaceAlt:'#2E2E30', border:'#3A3A3E', text:'#FAFAFA', dim:'#9AA3B2', faint:'#6B7280', accent:'#F2B705', onAccent:'#111', light:'#EAE3C8', dark:'#8B7355', desc:'Dark preenchido — BigButtons grafite sólido com ícone âmbar, bottomNav grafite + acento âmbar.' },
+{ id:'floresta', nome:'2 Floresta Densa', bg:'#0F2A1D', surface:'#143625', surfaceAlt:'#1A4A2E', border:'#2E6B3A', text:'#FFF8E7', dim:'#A8C4B0', faint:'#6B8F7A', accent:'#4CAF7D', onAccent:'#0F2A1D', light:'#FFF8E7', dark:'#2E7D32', desc:'Verde bloco — botões verde sólido, drawer floresta, nav verde claro ativo.' },
+{ id:'terracota2', nome:'3 Terracota Bloco v2', bg:'#FFF5E6', surface:'#F2E8D6', surfaceAlt:'#EADFC8', border:'#D2B89A', text:'#382E20', dim:'#8A7355', faint:'#6B5A4A', accent:'#B5652E', onAccent:'#fff', light:'#FFF5E6', dark:'#B5652E', desc:'Terracota 100% — header terracota, BigButtons bege sólido, botões terracota.' },
+{ id:'noite', nome:'4 Noite Estrelada', bg:'#0B1026', surface:'#121A33', surfaceAlt:'#1A2347', border:'#2A3A5E', text:'#E8EAF6', dim:'#8A95C2', faint:'#5A648A', accent:'#FFD54F', onAccent:'#0B1026', light:'#E8EAF6', dark:'#1A2347', desc:'Noite + amarelo — botões amarelo sólido, nav noite com ativo amarelo.' },
+{ id:'carmesim', nome:'5 Carmesim Editorial', bg:'#4A0F14', surface:'#5A1A1F', surfaceAlt:'#6B242A', border:'#8B2F37', text:'#FFF8E1', dim:'#D4B8B2', faint:'#9A7A7A', accent:'#C62828', onAccent:'#fff', light:'#FFF8E1', dark:'#4A0F14', desc:'Bordô editorial — BigButtons bordô sólido, drawer carmesim, botões vermelho.' },
+{ id:'petroleo', nome:'6 Petróleo Bloco', bg:'#0B1E2A', surface:'#12394A', surfaceAlt:'#174A5E', border:'#2A5F73', text:'#E0F2F1', dim:'#8AB4C2', faint:'#5A8A9A', accent:'#00ACC1', onAccent:'#0B1E2A', light:'#E0F2F1', dark:'#12394A', desc:'Petróleo ciano — nav petróleo, botões ciano 100%.' },
+{ id:'mostarda', nome:'7 Mostarda & Carvão ★', bg:'#1E1E1E', surface:'#2B2B2B', surfaceAlt:'#3A3A3A', border:'#4A4A4A', text:'#FFF8E7', dim:'#B8B8B8', faint:'#8A8A8A', accent:'#E9C46A', onAccent:'#1E1E1E', light:'#FFF8E7', dark:'#6B4A2E', desc:'Cread favorito — BigButtons carvão sólido, ícone mostarda, bottomNav carvão.' },
+{ id:'bordo', nome:'8 Bordô & Marfim', bg:'#FFF5E1', surface:'#FFF0D4', surfaceAlt:'#F2E0B8', border:'#D2B89A', text:'#4A0F14', dim:'#8A5A5A', faint:'#6B4A4A', accent:'#AD1457', onAccent:'#fff', light:'#FFF5E1', dark:'#6E1D27', desc:'Marfim claro — botões bordô sólido, drawer marfim, nav bordô ativo.' },
+{ id:'cread', nome:'9 Verde Cread ★', bg:'#102A1A', surface:'#1B4D2E', surfaceAlt:'#234F32', border:'#2E6B3A', text:'#F4EAD5', dim:'#B8C9B8', faint:'#8AA08A', accent:'#81C784', onAccent:'#102A1A', light:'#F4EAD5', dark:'#1B4D2E', desc:'Verde Cread — BigButtons verde selva sólido, botões verde claro.' },
+{ id:'premium', nome:'10 Escuro Premium', bg:'#0A0A0A', surface:'#121212', surfaceAlt:'#1E1E1E', border:'#2E2E2E', text:'#EAEAEA', dim:'#9A9A9A', faint:'#6B6B6B', accent:'#FFC857', onAccent:'#0A0A0A', light:'#EAEAEA', dark:'#4A4A4A', desc:'Premium preto — botões âmbar sólido, nav preto com ativo âmbar.' },
 ];
-const boardPieces=[
-['♜','♞','♝','♛','♚','♝','♞','♜'],
-['♟','♟','♟','♟','','♟','♟','♟'],
-['','','','','','','',''],
-['','','','','♟','','',''],
-['','','♗','','♙','','',''],
-['','','','','','♘','',''],
-['♙','♙','♙','♙','♔','♙','♙','♙'],
-['♖','','♗','♕','','♗','♘','♖'],
-];
+const boardPieces=[['♜','♞','♝','♛','♚','♝','♞','♜'],['♟','♟','♟','♟','','♟','♟','♟'],['','','','','','','',''],['','','','','♟','','',''],['','','♗','','♙','','',''],['','','','','','♘','',''],['♙','♙','♙','♙','♔','♙','♙','♙'],['♖','','♗','♕','','♗','♘','♖']];
 function buildBoard(el, light, dark){
  el.innerHTML='';
  for(let r=0;r<8;r++) for(let c=0;c<8;c++){
-  const d=document.createElement('div');
-  d.className='sq';
-  const isLight=(r+c)%2===0;
-  d.style.background=isLight?light:dark;
-  d.style.color=isLight?'#382E20':'#fff';
-  d.textContent=boardPieces[r][c];
-  el.appendChild(d);
+  const d=document.createElement('div'); d.className='sq';
+  d.style.background=(r+c)%2===0?light:dark;
+  d.style.color=(r+c)%2===0?'#382E20':'#fff';
+  d.textContent=boardPieces[r][c]; el.appendChild(d);
  }
 }
 const phone=document.getElementById('phone');
 const pills=document.getElementById('pills');
 const grid=document.getElementById('grid');
-let active=themes[6]; // default mostarda
+let active=themes[6];
 function apply(t){
  active=t;
  document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('active', p.dataset.id===t.id));
- phone.style.setProperty('--bg', t.bg);
- phone.style.setProperty('--surface', t.surface);
- phone.style.setProperty('--surfaceAlt', t.surfaceAlt);
- phone.style.setProperty('--border', t.border);
- phone.style.setProperty('--text', t.text);
- phone.style.setProperty('--dim', t.dim);
- phone.style.setProperty('--accent', t.accent);
- phone.style.setProperty('--onAccent', t.onAccent);
+ phone.style.setProperty('--bg', t.bg); phone.style.setProperty('--surface', t.surface); phone.style.setProperty('--surfaceAlt', t.surfaceAlt);
+ phone.style.setProperty('--border', t.border); phone.style.setProperty('--text', t.text); phone.style.setProperty('--dim', t.dim);
+ phone.style.setProperty('--accent', t.accent); phone.style.setProperty('--onAccent', t.onAccent);
  phone.style.background=t.bg;
  document.getElementById('detailTitle').textContent=t.nome;
  document.getElementById('detailDesc').textContent=t.desc;
@@ -144,39 +176,34 @@ function apply(t){
  document.getElementById('bannerText').style.color=t.text;
  const sw=document.getElementById('swatches');
  sw.innerHTML=['bg','surface','surfaceAlt','border','text','accent','light','dark'].map(k=>{
-  const v=t[k]; const isBg=k==='text'?t.bg:''; return `<div class="sw" style="background:${v};color:${k==='accent'||k==='bg'?'#111':(k==='text'?t.bg:t.text)}">${k}<small>${v}</small></div>`;
+  const v=t[k]; return `<div class="sw" style="background:${v};color:${k==='accent'?'#111':t.text}">${k}<small>${v}</small></div>`;
  }).join('');
- document.getElementById('code').textContent=`static const ${t.id}=AppPalette(\n  id:'${t.id}', nome:'${t.nome.slice(2)}',\n  background:Color(0xFF${t.bg.slice(1)}), surface:Color(0xFF${t.surface.slice(1)}),\n  surfaceAlt:Color(0xFF${t.surfaceAlt.slice(1)}), border:Color(0xFF${t.border.slice(1)}),\n  text:Color(0xFF${t.text.slice(1)}), accent:Color(0xFF${t.accent.slice(1)}),\n  lightSquare:Color(0xFF${t.light.slice(1)}), darkSquare:Color(0xFF${t.dark.slice(1)}), ...);`;
+ document.getElementById('code').textContent=`static const ${t.id}=AppPalette(id:'${t.id}', background:Color(0xFF${t.bg.slice(1)}), accent:Color(0xFF${t.accent.slice(1)}), light:Color(0xFF${t.light.slice(1)}), dark:Color(0xFF${t.dark.slice(1)}))`;
  buildBoard(document.getElementById('board'), t.light, t.dark);
 }
+document.querySelectorAll('.view-tabs button').forEach(b=>{
+ b.onclick=()=>{
+  document.querySelectorAll('.view-tabs button').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  document.getElementById('view-board').classList.toggle('hidden', b.dataset.view!=='board');
+  document.getElementById('view-buttons').classList.toggle('hidden', b.dataset.view!=='buttons');
+  document.getElementById('view-nav').classList.toggle('hidden', b.dataset.view!=='nav');
+ }
+});
 themes.forEach(t=>{
- const b=document.createElement('button');
- b.className='pill'; b.dataset.id=t.id; b.textContent=t.nome;
- b.style.background=t.accent; b.style.color=t.onAccent;
- b.onclick=()=>apply(t);
- pills.appendChild(b);
- const card=document.createElement('div');
- card.className='card';
- card.style.setProperty('--bg', t.bg);
- card.style.setProperty('--surface', t.surface);
- card.style.setProperty('--surfaceAlt', t.surfaceAlt);
- card.style.setProperty('--border', t.border);
- card.style.setProperty('--text', t.text);
- card.style.setProperty('--accent', t.accent);
- card.style.setProperty('--onAccent', t.onAccent);
- card.innerHTML=`<h2>${t.nome} <small>${t.bg} → ${t.accent}</small></h2>
+ const b=document.createElement('button'); b.className='pill'; b.dataset.id=t.id; b.textContent=t.nome; b.style.background=t.accent; b.style.color=t.onAccent; b.onclick=()=>apply(t); pills.appendChild(b);
+ const card=document.createElement('div'); card.className='card';
+ card.style.setProperty('--bg', t.bg); card.style.setProperty('--surface', t.surface); card.style.setProperty('--surfaceAlt', t.surfaceAlt);
+ card.style.setProperty('--border', t.border); card.style.setProperty('--text', t.text); card.style.setProperty('--accent', t.accent); card.style.setProperty('--onAccent', t.onAccent);
+ card.innerHTML=`<h2>${t.nome} <small>${t.accent}</small></h2>
  <div class="mini-board" id="mini-${t.id}"></div>
- <div class="colors">
-  <span class="dot" style="background:${t.bg};color:${t.text}">bg</span>
-  <span class="dot" style="background:${t.surface};color:${t.text}">sf</span>
-  <span class="dot" style="background:${t.accent};color:${t.onAccent}">ac</span>
-  <span class="dot" style="background:${t.light};color:#111">cl</span>
-  <span class="dot" style="background:${t.dark};color:#fff">dk</span>
-  <span style="font-size:11px;opacity:.7">${t.desc}</span>
+ <div class="mini-btns">
+  <span class="mini-btn" style="background:${t.accent};color:${t.onAccent}">Filled</span>
+  <span class="mini-btn" style="background:transparent;color:${t.accent};border:2px solid ${t.accent}">Outline</span>
+  <span class="mini-btn" style="background:${t.surfaceAlt};color:${t.text};border:1px solid ${t.border}">Ghost</span>
  </div>
- <p><b style="color:${t.accent}">${t.accent}</b> • header 100% preenchido • banner sólido • tabuleiro borda grossa</p>`;
- card.style.cursor='pointer'; card.onclick=()=>{apply(t); window.scrollTo({top:0,behavior:'smooth'})};
- grid.appendChild(card);
+ <div class="mini-nav"><span style="color:${t.accent}">♔ Mates</span><span>⚡ Tática</span><span>🛡 Defesa</span><span>⚙</span></div>
+ <p><b style="color:${t.accent}">${t.accent}</b> • BigButtons preenchidos • nav sólido</p>`;
+ card.style.cursor='pointer'; card.onclick=()=>{apply(t); window.scrollTo({top:0,behavior:'smooth'})}; grid.appendChild(card);
 });
 themes.forEach(t=> buildBoard(document.getElementById('mini-'+t.id), t.light, t.dark));
 apply(active);
