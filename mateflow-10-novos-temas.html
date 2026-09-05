@@ -9,6 +9,7 @@ header h1{font-size:26px;font-weight:900}
 header p{color:#9aa3ae;margin-top:8px;font-size:13px;line-height:1.6}
 header p b{color:#e8ebee}
 header p span.tag{display:inline-block;background:#E8A33D;color:#111;padding:2px 8px;border-radius:20px;font-weight:800;font-size:11px;margin:0 4px}
+.home-note{max-width:1180px;margin:12px auto;background:#1a1f25;border:1px solid #2a333e;border-radius:12px;padding:10px;text-align:center;color:#9aa3ae;font-size:12px}
 .apk{max-width:1180px;margin:14px auto;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .apk a{background:#E8A33D;color:#111;padding:10px 18px;border-radius:10px;font-weight:800;text-decoration:none;font-size:13px}
 .apk a.sec{background:#1a1f25;color:#e8ebee;border:1px solid #2a333e}
@@ -91,11 +92,25 @@ footer b{color:#E8A33D}
 <div class="pills" id="pills"></div>
 </div>
 
-<div style="max-width:1180px;margin:0 auto;text-align:center;color:#9aa3ae;font-size:12px">↓ Preview interativo mostra tudo: <b style="color:#e8ebee">Tabuleiro + Botões + Navegação</b> — troque o tema acima</div>
+<div class="home-note">↓ Preview interativo: <b style="color:#e8ebee">Menu Inicial (4 BigButtons) + Tabuleiro + Botões + Navegação</b> — troque o tema nos pills</div>
 
 <div class="preview-wrap">
 <div class="phone" id="phone">
 <div class="phone-head"><strong>Mateflow</strong><span>⚙ 28px</span></div>
+
+<div id="view-home" style="padding:12px">
+<div style="font-size:10px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;font-weight:800;margin-bottom:8px">— Menu Inicial</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:10px">
+<div style="width:64px;height:64px;border-radius:16px;background:#111;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.4)">♔</div>
+<div style="font-size:15px;font-weight:900;color:var(--text)">Mateflow</div>
+<div style="font-size:11px;color:var(--dim);background:var(--surfaceAlt);border:1px solid var(--border);padding:4px 10px;border-radius:20px">♔ 1250 • 4 temas</div>
+</div>
+<div class="big-btn" style="margin:6px 0"><div class="icon">♔</div><div><strong>Mates</strong><br><small>750 problemas</small></div><span style="margin-left:auto;color:var(--dim)">›</span></div>
+<div class="big-btn" style="margin:6px 0"><div class="icon">⚡</div><div><strong>Tática</strong><br><small>Espeto · Descoberta</small></div><span style="margin-left:auto;color:var(--dim)">›</span></div>
+<div class="big-btn" style="margin:6px 0"><div class="icon">🛡</div><div><strong>Defesa</strong><br><small>5 subtemas</small></div><span style="margin-left:auto;color:var(--dim)">›</span></div>
+<div class="big-btn" style="margin:6px 0"><div class="icon">📖</div><div><strong>Aberturas</strong><br><small>Do zero à transição</small></div><span style="margin-left:auto;color:var(--dim)">›</span></div>
+</div>
+<div style="height:1px;background:var(--border);margin:4px 12px"></div>
 
 <div id="view-board">
 <div style="padding:8px 12px 0;font-size:10px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;font-weight:800">— Tabuleiro</div>
