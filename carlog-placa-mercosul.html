@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CarLog — Placa Mercosul no cartão do veículo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:#0B1220;color:#E7EEF7;padding:20px}
+.wrap{max-width:900px;margin:auto}
+h1{font-size:24px;text-align:center;margin:18px 0 6px}
+h1 small{display:block;font-size:13px;color:#8098B7;font-weight:400;margin-top:6px}
+.reco{background:#111C31;border:1px solid #FF6B4A66;border-radius:16px;padding:14px 18px;font-size:13.5px;line-height:1.6;color:#C9D6E6;margin:18px 0}
+.reco b{color:#FF6B4A}
+.grid{display:grid;grid-template-columns:1fr;gap:22px}
+.card{background:#111C31;border:1px solid #263451;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.t{font-size:15px;font-weight:800}
+.s{font-size:12px;color:#8098B7}
+.phone{border-radius:14px;overflow:hidden;border:1px solid #263451}
+.phone img{display:block;width:100%;height:auto}
+.desc{font-size:12.5px;color:#C9D6E6;line-height:1.45}
+footer{text-align:center;color:#5A6E8C;font-size:12px;margin:26px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CarLog — Placa Mercosul no cartão do veículo
+    <small>faixa azul (logo + BRASIL + bandeira) e código em preto no fundo claro, na proporção real 400×130</small>
+  </h1>
+
+  <div class="reco">
+    <b>Como ficou:</b> o antigo chip cinza com o texto da placa virou uma <b>placa Mercosul em miniatura</b>, desenhada no próprio app (sem imagem): faixa azul com o logo do Mercosul, "BRASIL" e a bandeira; abaixo, o código em preto sobre fundo claro, com borda escura. Funciona nos 5 temas — no tema claro (Madeira) o fundo branco da placa continua se destacando.
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div><div class="t">No cartão do veículo (tema Terracota)</div><div class="s">do lado da engrenagem de editar</div></div>
+      <div class="phone"><a href="assets/carlog/placa_header_terracota.png" target="_blank"><img src="assets/carlog/placa_header_terracota.png" alt="Placa no cartão (tema escuro)"></a></div>
+      <div class="desc">A placa ocupa o lugar do chip antigo, mantendo o nome do carro e o botão de editar. Toque na imagem para ampliar.</div>
+    </div>
+
+    <div class="card">
+      <div><div class="t">Tema claro (Madeira)</div><div class="s">mesma placa, contraste mantido</div></div>
+      <div class="phone"><a href="assets/carlog/placa_header_madeira.png" target="_blank"><img src="assets/carlog/placa_header_madeira.png" alt="Placa no cartão (tema claro)"></a></div>
+      <div class="desc">No tema claro o fundo branco da placa continua funcionando como elemento "físico".</div>
+    </div>
+
+    <div class="card">
+      <div><div class="t">Zoom na placa</div><div class="s">detalhes: logo, BRASIL, bandeira</div></div>
+      <div class="phone"><a href="assets/carlog/placa_zoom.png" target="_blank"><img src="assets/carlog/placa_zoom.png" alt="Zoom da placa Mercosul"></a></div>
+      <div class="desc">Proporção 400×130 da placa real; caracteres no padrão Mercosul (3 letras + número + 2 caracteres).</div>
+    </div>
+  </div>
+
+  <footer>CarLog • prévias renderizadas com o widget real do app (golden test)</footer>
+</div>
+</body>
+</html>
