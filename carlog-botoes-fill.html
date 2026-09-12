@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CarLog — Menu com botões FILL (6 opções)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:#0B1220;color:#E7EEF7;padding:20px}
+.wrap{max-width:1180px;margin:auto}
+h1{font-size:24px;text-align:center;margin:18px 0 6px}
+h1 small{display:block;font-size:13px;color:#8098B7;font-weight:400;margin-top:6px}
+.reco{max-width:760px;margin:18px auto 26px;background:#111C31;border:1px solid #FF6B4A66;border-radius:16px;padding:14px 18px;font-size:13.5px;line-height:1.5;color:#C9D6E6}
+.reco b{color:#FF6B4A}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.card{background:#111C31;border:1px solid #263451;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.card.destaque{border-color:#FF6B4A;box-shadow:0 0 0 1px #FF6B4A55}
+.head{display:flex;align-items:center;gap:10px}
+.num{width:30px;height:30px;border-radius:15px;background:#FF6B4A;color:#2A0A02;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.head .t{font-size:15px;font-weight:800}
+.head .s{font-size:12px;color:#8098B7}
+.phone{border-radius:22px;overflow:hidden;border:1px solid #263451;background:#0B1220}
+.phone img{display:block;width:100%;height:auto}
+.desc{font-size:12.5px;color:#C9D6E6;line-height:1.45}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:#17253E;color:#9FB3CC;border:1px solid #263451}
+.tag.good{background:#123527;color:#7CE7B4;border-color:#1E5A42}
+.tag.bad{background:#3A1B1B;color:#FF9C9C;border-color:#6B2A2A}
+.hint{font-size:11.5px;color:#8098B7;border-left:2px solid #263451;padding-left:9px;line-height:1.45}
+footer{text-align:center;color:#5A6E8C;font-size:12px;margin:26px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CarLog — Menu com botões <span style="color:#FF6B4A">FILL</span> (preenchidos)
+    <small>6 opções • tema Terracota (padrão) • renderizado com o próprio código do app</small>
+  </h1>
+
+  <div class="reco">
+    <b>Recomendado: Variação 1 — Fill circular sólido.</b> É a mudança mais simples (fundo do círculo vira a cor cheia da categoria e o ícone fica branco), mantém o formato que você já conhece e dá o maior ganho de contraste no tema escuro.
+    Se quiser um toque mais "premium", a <b>Variação 2</b> (mesmo fill + sombra colorida) é a segunda melhor.
+  </div>
+
+  <div class="grid">
+
+    <div class="card destaque">
+      <div class="head"><div class="num">1</div><div><div class="t">Fill circular sólido <span style="color:#FF6B4A">★</span></div><div class="s">recomendado</div></div></div>
+      <div class="phone"><a href="assets/carlog/menu_v1.png" target="_blank"><img src="assets/carlog/menu_v1.png" alt="Variação 1 — Fill circular sólido"></a></div>
+      <div class="desc">Círculo totalmente preenchido com a cor da categoria e ícone branco. Mantém o layout atual (3 colunas, rótulo embaixo) e troca só o estilo do botão.</div>
+      <div class="tags"><span class="tag good">contraste alto</span><span class="tag good">mudança mínima</span><span class="tag">sem sombra</span></div>
+      <div class="hint">Implementação: em <b>botao_redondo.dart</b>, trocar <b>color: cor.withValues(alpha: 0.14)</b> por <b>color: cor</b> e <b>Icon(cor)</b> por <b>Icon(Colors.white)</b>; remover a borda.</div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">2</div><div><div class="t">Fill circular + sombra</div><div class="s">profundidade</div></div></div>
+      <div class="phone"><a href="assets/carlog/menu_v2.png" target="_blank"><img src="assets/carlog/menu_v2.png" alt="Variação 2 — Fill + sombra"></a></div>
+      <div class="desc">Igual à 1, mas com sombra colorida suave embaixo do círculo (cor da categoria com transparência). Destaca os botões do fundo escuro.</div>
+      <div class="tags"><span class="tag good">premium</span><span class="tag good">destaque</span><span class="tag">sombra pode variar por tela</span></div>
+      <div class="hint">Implementação: <b>BoxShadow(color: cor.withValues(alpha: .35), blurRadius: 14, offset: Offset(0, 5))</b> no container do círculo.</div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">3</div><div><div class="t">Pill (pílula) fill</div><div class="s">área de toque maior</div></div></div>
+      <div class="phone"><a href="assets/carlog/menu_v3.png" target="_blank"><img src="assets/carlog/menu_v3.png" alt="Variação 3 — Pill fill"></a></div>
+      <div class="desc">O texto entra DENTRO do botão preenchido (ícone + rótulo brancos). Vira uma grade 2×3, com bem mais área de toque por botão.</div>
+      <div class="tags"><span class="tag good">toque fácil</span><span class="tag good">menos texto externo</span><span class="tag bad">muda o layout da grade</span></div>
+      <div class="hint">Implementação: trocar o grid para <b>crossAxisCount: 2</b> e o botão para um retângulo com <b>borderRadius: 32</b>, ícone + texto na mesma linha.</div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">4</div><div><div class="t">Quadrado arredondado fill</div><div class="s">visual de app</div></div></div>
+      <div class="phone"><a href="assets/carlog/menu_v4.png" target="_blank"><img src="assets/carlog/menu_v4.png" alt="Variação 4 — Quadrado arredondado"></a></div>
+      <div class="desc">Mesmo preenchimento, mas com cantos arredondados (20px) em vez de círculo. Fica mais "app moderno" e menos "bolinha".</div>
+      <div class="tags"><span class="tag good">moderno</span><span class="tag good">mesma grade</span><span class="tag">muda a identidade dos botões</span></div>
+      <div class="hint">Implementação: trocar <b>shape: BoxShape.circle</b> por <b>borderRadius: BorderRadius.circular(20)</b> no container de 74×74.</div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">5</div><div><div class="t">Fill com degradê</div><div class="s">efeito premium</div></div></div>
+      <div class="phone"><a href="assets/carlog/menu_v5.png" target="_blank"><img src="assets/carlog/menu_v5.png" alt="Variação 5 — Degradê"></a></div>
+      <div class="desc">O preenchimento vai da cor da categoria para um tom mais escuro dela. Mantém o ícone branco e continua legível.</div>
+      <div class="tags"><span class="tag good">sofisticado</span><span class="tag good">mesma grade</span><span class="tag bad">mais código que a 1</span></div>
+      <div class="hint">Implementação: usar <b>LinearGradient</b> no lugar da cor sólida, escurecendo a cor com <b>HSLColor</b> (luminosidade × 0.72).</div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">6</div><div><div class="t">Fill + anel interno</div><div class="s">detalhe elegante</div></div></div>
+      <div class="phone"><a href="assets/carlog/menu_v6.png" target="_blank"><img src="assets/carlog/menu_v6.png" alt="Variação 6 — Fill + anel"></a></div>
+      <div class="desc">Preenchido com um anel branco translúcido por dentro. É a Variação 1 com um detalhe a mais — continua sendo fill, não outline.</div>
+      <div class="tags"><span class="tag good">mesma grade</span><span class="tag good">detalhe sutil</span><span class="tag">pouco contraste com a 1</span></div>
+      <div class="hint">Implementação: <b>Border.all(color: Colors.white.withValues(alpha: .16), width: 3)</b> no container já preenchido.</div>
+    </div>
+
+  </div>
+
+  <footer>CarLog • previews renderizados pela árvore de widgets real (golden test) • toque nas imagens para ampliar</footer>
+</div>
+</body>
+</html>
