@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CarLog — 10 ideias para o topo da tela inicial</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:#0B1220;color:#E7EEF7;padding:20px}
+.wrap{max-width:1180px;margin:auto}
+h1{font-size:24px;text-align:center;margin:18px 0 6px}
+h1 small{display:block;font-size:13px;color:#8098B7;font-weight:400;margin-top:6px}
+.reco{max-width:820px;margin:18px auto 8px;background:#111C31;border:1px solid #FF6B4A66;border-radius:16px;padding:14px 18px;font-size:13.5px;line-height:1.6;color:#C9D6E6}
+.reco b{color:#FF6B4A}
+.reco ul{margin:6px 0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:20px}
+.card{background:#111C31;border:1px solid #263451;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.head{display:flex;align-items:center;gap:10px}
+.num{width:30px;height:30px;border-radius:15px;background:#FF6B4A;color:#2A0A02;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:13px}
+.head .t{font-size:15px;font-weight:800}
+.head .s{font-size:12px;color:#8098B7}
+.phone{border-radius:22px;overflow:hidden;border:1px solid #263451;background:#0B1220}
+.phone img{display:block;width:100%;height:auto}
+.desc{font-size:12.5px;color:#C9D6E6;line-height:1.45}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:#17253E;color:#9FB3CC;border:1px solid #263451}
+.tag.good{background:#123527;color:#7CE7B4;border-color:#1E5A42}
+footer{text-align:center;color:#5A6E8C;font-size:12px;margin:26px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CarLog — 10 ideias para o topo da tela inicial
+    <small>cartão do veículo + odômetro, km/mês, combustível, FIPE, calibragem e previsão de revisão • tema Terracota</small>
+  </h1>
+
+  <div class="reco">
+    <b>Como usar estas ideias:</b> elas são independentes (dá para combinar). Os caminhos que eu recomendaria:
+    <ul>
+      <li><b>Mais simples e com maior impacto:</b> Ideia 1 (odômetro em destaque) + Ideia 2 (indicadores em lista de 2 colunas).</li>
+      <li><b>Foco em manutenção:</b> Ideia 3 (barra da revisão) ou Ideia 5 (atenção primeiro).</li>
+      <li><b>Cara de "painel":</b> Ideia 4 (anel de saúde) ou Ideia 10 (painel digital).</li>
+      <li><b>Dados e gastos:</b> Ideia 8 (gráfico de km) + Ideia 9 (gasto do mês em destaque).</li>
+    </ul>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="head"><div class="num">1</div><div><div class="t">Odômetro em destaque</div><div class="s">o km como "herói" do cartão</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v1.png" target="_blank"><img src="assets/carlog/topo_v1.png" alt="Ideia 1"></a></div>
+      <div class="desc">O odômetro vira um número grande (45.320 km) e os outros 5 indicadores viram chips compactos abaixo. Mostra na hora "onde o carro está".</div>
+      <div class="tags"><span class="tag good">simples</span><span class="tag good">destaque claro</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">2</div><div><div class="t">Indicadores em lista 2 colunas</div><div class="s">mais legível que a grade 3×2</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v2.png" target="_blank"><img src="assets/carlog/topo_v2.png" alt="Ideia 2"></a></div>
+      <div class="desc">Cada indicador vira uma linha com ícone + valor + rótulo, em 2 colunas. Valores longos ("R$ 62.400", "faltam 1.480 km") cabem sem apertar.</div>
+      <div class="tags"><span class="tag good">legível</span><span class="tag good">mesma altura de hoje</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">3</div><div><div class="t">Barra de progresso da revisão</div><div class="s">quanto falta, num gráfico</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v3.png" target="_blank"><img src="assets/carlog/topo_v3.png" alt="Ideia 3"></a></div>
+      <div class="desc">A previsão de revisão vira uma barra (45.320 → meta 50.000 km) com "faltam 1.480 km" em destaque azul. O resto vira chips.</div>
+      <div class="tags"><span class="tag good">visual</span><span class="tag good">foco em manutenção</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">4</div><div><div class="t">Anel de saúde do carro</div><div class="s">uma nota geral + 3 status</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v4.png" target="_blank"><img src="assets/carlog/topo_v4.png" alt="Ideia 4"></a></div>
+      <div class="desc">Um anel com nota (82/100) resume revisão, calibragem e FIPE, cada um com bolinha verde/amarela. Passa a sensação de "está tudo em dia?".</div>
+      <div class="tags"><span class="tag good">resumo instantâneo</span><span class="tag good">premium</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">5</div><div><div class="t">Atenção primeiro</div><div class="s">o que está atrasado sobe</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v5.png" target="_blank"><img src="assets/carlog/topo_v5.png" alt="Ideia 5"></a></div>
+      <div class="desc">Se algo venceu (calibragem há 31 dias, revisão próxima), aparece em cartões de alerta tocáveis. O resto fica recolhido em "Mais indicadores".</div>
+      <div class="tags"><span class="tag good">útil no dia a dia</span><span class="tag good">menos poluição</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">6</div><div><div class="t">Tiles na cor da categoria</div><div class="s">combina com os botões novos</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v6.png" target="_blank"><img src="assets/carlog/topo_v6.png" alt="Ideia 6"></a></div>
+      <div class="desc">Mantém a grade atual, mas cada tile ganha o fundo suave da cor da sua categoria (igual à lógica dos botões fill degradê). Une o visual da tela.</div>
+      <div class="tags"><span class="tag good">consistente</span><span class="tag good">mudança pequena</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">7</div><div><div class="t">Carrossel de indicadores</div><div class="s">cartões maiores na horizontal</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v7.png" target="_blank"><img src="assets/carlog/topo_v7.png" alt="Ideia 7"></a></div>
+      <div class="desc">No lugar da grade, cartões grandes que deslizam para o lado (com bolinhas de posição). Cabe mais detalhe em cada um e reduz a "poluição" visual.</div>
+      <div class="tags"><span class="tag good">espaçoso</span><span class="tag">exige deslizar</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">8</div><div><div class="t">Gráfico de km por mês</div><div class="s">últimos 6 meses</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v8.png" target="_blank"><img src="assets/carlog/topo_v8.png" alt="Ideia 8"></a></div>
+      <div class="desc">Barras com os km de cada mês (mês atual em destaque) + média. Mostra o ritmo de uso sem precisar abrir a tela de Consumo.</div>
+      <div class="tags"><span class="tag good">tendência</span><span class="tag good">visual</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">9</div><div><div class="t">Destaque do gasto do mês</div><div class="s">R$ + custo por km</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v9.png" target="_blank"><img src="assets/carlog/topo_v9.png" alt="Ideia 9"></a></div>
+      <div class="desc">O combustível do mês vira número grande (R$ 620,00) com "1.240 km · R$ 0,50/km" ao lado. Odômetro, calibragem, FIPE e revisão ficam embaixo.</div>
+      <div class="tags"><span class="tag good">financeiro</span><span class="tag good">fácil de entender</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">10</div><div><div class="t">Painel digital</div><div class="s">estilo painel de carro</div></div></div>
+      <div class="phone"><a href="assets/carlog/topo_v10.png" target="_blank"><img src="assets/carlog/topo_v10.png" alt="Ideia 10"></a></div>
+      <div class="desc">Números grandes alinhados (tabular), rótulos em caixa-alta e divisórias finas. É o visual mais "cockpit" — bom se você gosta de painel de instrumentos.</div>
+      <div class="tags"><span class="tag good">cockpit</span><span class="tag good">organizado</span></div>
+    </div>
+
+  </div>
+
+  <footer>CarLog • previews renderizados pela árvore de widgets real (golden test) • toque nas imagens para ampliar</footer>
+</div>
+</body>
+</html>
