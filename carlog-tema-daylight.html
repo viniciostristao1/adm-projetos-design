@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CarLog — implementado: tema Daylight (claro branco/azul)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:#F2F6FB;color:#16202E;padding:20px}
+.wrap{max-width:1140px;margin:auto}
+h1{font-size:24px;text-align:center;margin:18px 0 6px}
+h1 small{display:block;font-size:13px;color:#61748C;font-weight:400;margin-top:6px}
+.reco{max-width:860px;margin:18px auto 8px;background:#FFFFFF;border:1px solid #C3D2E5;border-left:4px solid #1F6FEB;border-radius:14px;padding:14px 18px;font-size:13.5px;line-height:1.65;color:#31465E}
+.reco b{color:#1F6FEB}
+.reco ul{margin:6px 0 0 18px}
+.reco li{margin:3px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:20px}
+.card{background:#FFFFFF;border:1px solid #D8E2EF;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 24px -18px rgba(22,32,46,.45)}
+.head{display:flex;align-items:center;gap:10px}
+.num{width:30px;height:30px;border-radius:15px;background:#1F6FEB;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:13px}
+.head .t{font-size:15.5px;font-weight:800}
+.head .s{font-size:12px;color:#61748C}
+.phone{border-radius:22px;overflow:hidden;border:1px solid #D8E2EF;background:#F2F6FB}
+.phone img{display:block;width:100%;height:auto}
+.desc{font-size:12.5px;color:#31465E;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:#E8EEF7;color:#61748C;border:1px solid #D8E2EF}
+.tag.good{background:#E4F1EA;color:#1E7A4E;border-color:#B5DEC9}
+.tag.warn{background:#FBEAEA;color:#A33;border-color:#EFC7C7}
+footer{text-align:center;color:#94A6BA;font-size:12px;margin:30px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CarLog — implementado: tema <span style="color:#1F6FEB">Daylight</span> (claro branco/azul)
+    <small>renders reais do app (975×2000) · v0.45.0 · o tema Expresso foi removido</small>
+  </h1>
+
+  <div class="reco">
+    <b>Como fica no app:</b>
+    <ul>
+      <li><b>Tema:</b> Configurações → Aparência → <b>Daylight</b> — claro, branco/azul, vale para o app inteiro.</li>
+      <li><b>Expresso removido:</b> quem estava no tema Expresso cai automaticamente no <b>Terracota</b> (o padrão) — nada quebra.</li>
+      <li><b>Lista guiada:</b> com o tema Daylight, o modo <b>Lista</b> (botão ao lado da engrenagem) fica exatamente como na ideia 4 do preview.</li>
+    </ul>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="head"><div class="num">1</div><div><div class="t">Daylight — home clássica</div><div class="s">tema aplicado com a grade 3×2</div></div></div>
+      <div class="phone"><img src="assets/carlog/day1.png" alt="Tema Daylight na home clássica"></div>
+      <div class="desc">Fundo claro, cartões brancos e azul como destaque. Funciona com os modos clássicos (Painel, Grade e Progresso).</div>
+      <div class="tags"><span class="tag good">Novo tema</span><span class="tag">Config → Aparência</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">2</div><div><div class="t">Daylight + Lista (a ideia 4)</div><div class="s">lista guiada com resumos</div></div></div>
+      <div class="phone"><img src="assets/carlog/day2.png" alt="Tema Daylight com modo Lista"></div>
+      <div class="desc">O visual da ideia 4 do preview: cada categoria em uma linha, com o resumo do momento (gasto, consumo, revisão, FIPE, calibragem e lembretes).</div>
+      <div class="tags"><span class="tag good">Daylight</span><span class="tag good">Lista</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">3</div><div><div class="t">Daylight + Racing</div><div class="s">odômetro em destaque</div></div></div>
+      <div class="phone"><img src="assets/carlog/day3.png" alt="Tema Daylight com modo Racing"></div>
+      <div class="desc">O mesmo modo Racing, agora no claro: barra da próxima revisão e atalhos com anel.</div>
+      <div class="tags"><span class="tag">Daylight</span><span class="tag">Racing</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">4</div><div><div class="t">Daylight + Teclas</div><div class="s">painel de teclas no claro</div></div></div>
+      <div class="phone"><img src="assets/carlog/day4.png" alt="Tema Daylight com modo Teclas"></div>
+      <div class="desc">Teclas grandes com resumo do mês — no tema claro as sombras e bordas ficam mais suaves.</div>
+      <div class="tags"><span class="tag">Daylight</span><span class="tag">Teclas</span></div>
+    </div>
+
+  </div>
+
+  <footer>CarLog v0.45.0 · tema Daylight · Expresso removido · 2026-09-19</footer>
+</div>
+</body>
+</html>
