@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CarLog — 10 ideias de cores, layout e atalhos para o menu principal</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:#0B1220;color:#E7EEF7;padding:20px}
+.wrap{max-width:1240px;margin:auto}
+h1{font-size:25px;text-align:center;margin:18px 0 6px}
+h1 small{display:block;font-size:13px;color:#8098B7;font-weight:400;margin-top:6px}
+.reco{max-width:900px;margin:18px auto 8px;background:#111C31;border:1px solid #FF6B4A66;border-radius:16px;padding:14px 18px;font-size:13.5px;line-height:1.65;color:#C9D6E6}
+.reco b{color:#FF6B4A}
+.reco ul{margin:6px 0 0 18px}
+.reco li{margin:3px 0}
+.novos{max-width:900px;margin:0 auto 8px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.novos .tag{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;background:#17253E;color:#9FB3CC;border:1px solid #263451}
+.novos .tag b{color:#E7EEF7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;margin-top:20px}
+.card{background:#111C31;border:1px solid #263451;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.head{display:flex;align-items:center;gap:10px}
+.num{width:30px;height:30px;border-radius:15px;background:#FF6B4A;color:#2A0A02;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:13px}
+.head .t{font-size:15.5px;font-weight:800}
+.head .s{font-size:12px;color:#8098B7}
+.phone{border-radius:22px;overflow:hidden;border:1px solid #263451;background:#0B1220}
+.phone img{display:block;width:100%;height:auto}
+.desc{font-size:12.5px;color:#C9D6E6;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:#17253E;color:#9FB3CC;border:1px solid #263451}
+.tag.good{background:#123527;color:#7CE7B4;border-color:#1E5A42}
+.tag.cor{background:#2A1B10;color:#FFC46B;border-color:#5A3A1E}
+footer{text-align:center;color:#5A6E8C;font-size:12px;margin:30px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CarLog — 10 ideias de cores, layout e atalhos para o menu principal
+    <small>renders reais da tela (975×2000, mesmo motor do app: fontes, ícones, cartão do veículo e placa)</small>
+  </h1>
+
+  <div class="reco">
+    <b>Como usar:</b> as 10 ideias são independentes — dá para misturar (paleta de uma, layout de outra, atalhos de uma terceira). Sugestões:
+    <ul>
+      <li><b>Sem virar outro app (menor risco):</b> Ideia 10 (Terracota Pro) ou Ideia 6 (Ocean) + atalhos <b>Relatórios</b> e <b>Despesas</b>.</li>
+      <li><b>Mais impacto visual:</b> Ideia 1 (Neon Drift) ou Ideia 2 (Racing Red).</li>
+      <li><b>Quem usa de dia / quer algo leve:</b> Ideia 4 (Daylight).</li>
+      <li><b>Organização por resumo:</b> Ideia 8 (Violet Money) — cartões com os números do mês.</li>
+      <li><b>Mais atalhos na mão:</b> Ideia 5 (Sunset) ou 9 (Off-road) — 8 ações visíveis de cara.</li>
+    </ul>
+  </div>
+
+  <div class="novos">
+    <span class="tag"><b>Atalhos novos propostos:</b></span>
+    <span class="tag">Relatórios</span>
+    <span class="tag">Despesas (pedágio, multa, estacionamento)</span>
+    <span class="tag">Documentos</span>
+    <span class="tag">Fotos</span>
+    <span class="tag">Metas de economia</span>
+    <span class="tag">Preço do combustível</span>
+    <span class="tag">Exportar histórico</span>
+    <span class="tag">Checklist</span>
+    <span class="tag">Diário</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="head"><div class="num">1</div><div><div class="t">Neon Drift</div><div class="s">preto + verde ácido · grade + dock inferior</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i1.png" alt="Menu ideia 1 — Neon Drift"></div>
+      <div class="desc">Visual tech/gamer de alto contraste. Os 8 atalhos em grade e uma <b>barra de navegação fixa</b> embaixo, com o botão central de lançamento sempre no polegar.</div>
+      <div class="tags"><span class="tag cor">Verde ácido</span><span class="tag">Dock inferior</span><span class="tag good">+ Relatórios</span><span class="tag good">+ Despesas</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">2</div><div><div class="t">Racing Red</div><div class="s">grafite + vermelho corrida · odômetro em destaque</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i2.png" alt="Menu ideia 2 — Racing Red"></div>
+      <div class="desc">Estilo esportivo: o <b>odômetro gigante</b> com barra até a próxima revisão manda no topo; os atalhos viram círculos com anel e entram dois novos.</div>
+      <div class="tags"><span class="tag cor">Vermelho racing</span><span class="tag">Hero + 8 atalhos</span><span class="tag good">+ Despesas</span><span class="tag good">+ Fotos</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">3</div><div><div class="t">Synthwave</div><div class="s">roxo + rosa/ciano · chips de acesso rápido</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i3.png" alt="Menu ideia 3 — Synthwave"></div>
+      <div class="desc">Cores neon sobre roxo profundo. Em vez de grade, <b>chips com ícone</b> (cabe mais ação) e dois cartões de novidades: meta de gasto e preço médio do combustível.</div>
+      <div class="tags"><span class="tag cor">Roxo/rosa</span><span class="tag">Chips</span><span class="tag good">+ Metas</span><span class="tag good">+ Preço combustível</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">4</div><div><div class="t">Daylight</div><div class="s">tema claro branco/azul · lista guiada</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i4.png" alt="Menu ideia 4 — Daylight"></div>
+      <div class="desc">Opção clara e limpa. Cada linha já traz o <b>valor do mês no subtítulo</b> (ex.: "R$ 414,55 · 71 L") e um chevron; inclui Documentos e Exportar.</div>
+      <div class="tags"><span class="tag cor">Claro</span><span class="tag">Lista com resumo</span><span class="tag good">+ Documentos</span><span class="tag good">+ Exportar</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">5</div><div><div class="t">Sunset</div><div class="s">marrom + laranja dourado · bento grid</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i5.png" alt="Menu ideia 5 — Sunset"></div>
+      <div class="desc">Aquecido e aconchegante. O topo vira <b>bento</b>: odômetro grande, cartão da próxima revisão e três resumos; abaixo, 8 atalhos em círculos compactos.</div>
+      <div class="tags"><span class="tag cor">Laranja/dourado</span><span class="tag">Bento</span><span class="tag good">+ Diário</span><span class="tag good">+ Despesas</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">6</div><div><div class="t">Ocean</div><div class="s">azul petróleo + ciano · 8 quadrados (2×4)</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i6.png" alt="Menu ideia 6 — Ocean"></div>
+      <div class="desc">Fresco e organizado. Os atalhos viram <b>"squircles" com ícone e rótulo</b> (8 ações de cara) e o resumo fica logo abaixo, enxuto.</div>
+      <div class="tags"><span class="tag cor">Azul/ciano</span><span class="tag">2×4 quadrados</span><span class="tag good">+ Relatórios</span><span class="tag good">+ Checklist</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">7</div><div><div class="t">Carbon Orange</div><div class="s">preto carbono + laranja · dock + botão central</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i7.png" alt="Menu ideia 7 — Carbon Orange"></div>
+      <div class="desc">Foco em lançar rápido: chips de <b>lançamento rápido</b> no corpo, avisos importantes e um <b>dock com "+" central</b> que abre a folha de novo registro.</div>
+      <div class="tags"><span class="tag cor">Laranja</span><span class="tag">Dock + FAB</span><span class="tag good">+ Despesas</span><span class="tag good">+ Fotos</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">8</div><div><div class="t">Violet Money</div><div class="s">roxo + verde-menta · carrossel de resumos</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i8.png" alt="Menu ideia 8 — Violet Money"></div>
+      <div class="desc">O mês em primeiro lugar: <b>cartões deslizantes</b> com Abastecimento, Consumo, Revisões, FIPE e Lembretes — cada um com o número principal. Atalhos essenciais embaixo.</div>
+      <div class="tags"><span class="tag cor">Roxo/menta</span><span class="tag">Carrossel</span><span class="tag good">+ Metas</span><span class="tag good">+ Relatórios</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">9</div><div><div class="t">Off-road</div><div class="s">verde militar + areia · botões "tecla"</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i9.png" alt="Menu ideia 9 — Off-road"></div>
+      <div class="desc">Robusto e tátil: 8 botões grandes estilo <b>tecla de painel</b> (fácil de acertar com o carro em movimento) e resumo embaixo.</div>
+      <div class="tags"><span class="tag cor">Verde militar</span><span class="tag">Teclas 4×2</span><span class="tag good">+ Checklist</span><span class="tag good">+ Documentos</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">10</div><div><div class="t">Terracota Pro</div><div class="s">tema atual evoluído · bento + grade</div></div></div>
+      <div class="phone"><img src="assets/carlog/menu_i10.png" alt="Menu ideia 10 — Terracota Pro"></div>
+      <div class="desc">Mantém a identidade (azul-marinho + coral) e melhora a leitura: resumo em cartões no topo e a grade de atalhos ganha <b>Relatórios</b> e <b>Despesas</b>.</div>
+      <div class="tags"><span class="tag cor">Terracota</span><span class="tag">Bento + grade</span><span class="tag good">+ Relatórios</span><span class="tag good">+ Despesas</span></div>
+    </div>
+
+  </div>
+
+  <footer>CarLog · mockups gerados com o motor real do Flutter (975×2000) · 2026-09-19</footer>
+</div>
+</body>
+</html>
