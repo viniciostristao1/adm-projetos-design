@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CarLog — implementado: tema Neon Drift + 3 modos de home (v0.44.0)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:#05080A;color:#EAF7F1;padding:20px}
+.wrap{max-width:1180px;margin:auto}
+h1{font-size:24px;text-align:center;margin:18px 0 6px;color:#EAF7F1}
+h1 small{display:block;font-size:13px;color:#7C9B8F;font-weight:400;margin-top:6px}
+.reco{max-width:860px;margin:18px auto 8px;background:#0C1211;border:1px solid #39FF8844;border-radius:16px;padding:14px 18px;font-size:13.5px;line-height:1.65;color:#C9D6C9}
+.reco b{color:#39FF88}
+.reco ul{margin:6px 0 0 18px}
+.reco li{margin:3px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:20px}
+.card{background:#0C1211;border:1px solid #1E2B26;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.head{display:flex;align-items:center;gap:10px}
+.num{width:30px;height:30px;border-radius:15px;background:#39FF88;color:#04220F;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:13px}
+.head .t{font-size:15.5px;font-weight:800;color:#EAF7F1}
+.head .s{font-size:12px;color:#7C9B8F}
+.phone{border-radius:22px;overflow:hidden;border:1px solid #1E2B26;background:#05080A}
+.phone img{display:block;width:100%;height:auto}
+.desc{font-size:12.5px;color:#A8C4B6;line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:#131C19;color:#7C9B8F;border:1px solid #1E2B26}
+.tag.good{background:#0F2A1B;color:#7CE7B4;border-color:#1E5A42}
+footer{text-align:center;color:#52706A;font-size:12px;margin:30px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CarLog — implementado: tema <span style="color:#39FF88">Neon Drift</span> + 3 modos de home
+    <small>renders reais do app (975×2000) · v0.44.0 · os modos usam as cores do TEMA escolhido</small>
+  </h1>
+
+  <div class="reco">
+    <b>Como fica no app:</b>
+    <ul>
+      <li><b>Tema:</b> Configurações → Aparência → <b>Neon Drift</b> (preto esverdeado + verde ácido) — vale para o app inteiro.</li>
+      <li><b>Modos:</b> o botão ao lado da engrenagem agora cicla <b>Painel → Grade → Progresso → Racing → Lista → Teclas</b>.</li>
+      <li>Os 3 modos novos <b>respeitam o tema</b>: com Neon Drift ficam como nas imagens; o "Daylight" (claro) é o modo <b>Lista no tema Madeira</b>; o "Racing Red" pode ser feito com um tema de accent vermelho no futuro.</li>
+    </ul>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="head"><div class="num">1</div><div><div class="t">Neon Drift (tema)</div><div class="s">home clássica no tema novo</div></div></div>
+      <div class="phone"><img src="assets/carlog/impl1.png" alt="Tema Neon Drift na home"></div>
+      <div class="desc">Preto esverdeado + verde ácido, aplicado no app inteiro (cartões, botões, destaques). A home clássica segue com a grade 3×2.</div>
+      <div class="tags"><span class="tag good">Novo tema</span><span class="tag">Config → Aparência</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">2</div><div><div class="t">Modo Racing</div><div class="s">odômetro em destaque + anéis</div></div></div>
+      <div class="phone"><img src="assets/carlog/impl2.png" alt="Modo Racing no tema Neon Drift"></div>
+      <div class="desc">Odômetro gigante com a barra até a próxima revisão e atalhos em círculos com anel claro. (No tema Neon Drift o destaque fica verde; com um tema de accent vermelho vira o "Racing Red".)</div>
+      <div class="tags"><span class="tag good">Novo modo</span><span class="tag">Odômetro + barra</span><span class="tag">Anéis</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">3</div><div><div class="t">Modo Lista</div><div class="s">lista guiada com resumo</div></div></div>
+      <div class="phone"><img src="assets/carlog/impl3.png" alt="Modo Lista no tema Neon Drift"></div>
+      <div class="desc">Cada categoria em uma linha, com o <b>resumo do momento</b> no subtítulo (gasto do mês, km/L, próxima revisão, FIPE, calibragem e lembretes).</div>
+      <div class="tags"><span class="tag good">Novo modo</span><span class="tag">Lista com valores</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">4</div><div><div class="t">Modo Teclas</div><div class="s">painel de teclas + resumo</div></div></div>
+      <div class="phone"><img src="assets/carlog/impl4.png" alt="Modo Teclas no tema Neon Drift"></div>
+      <div class="desc">Teclas grandes (fácil de acertar) com gradiente e borda, mais três cartões de resumo embaixo: consumo, combustível/mês e próxima revisão.</div>
+      <div class="tags"><span class="tag good">Novo modo</span><span class="tag">Teclas</span><span class="tag">Resumo</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">5</div><div><div class="t">Racing no tema atual (Terracota)</div><div class="s">mesmo modo, cores do tema padrão</div></div></div>
+      <div class="phone"><img src="assets/carlog/impl5.png" alt="Modo Racing no tema Terracota"></div>
+      <div class="desc">O modo não muda as cores do app — ele usa o accent e as superfícies do tema escolhido. Este é o visual para quem ficar no Terracota.</div>
+      <div class="tags"><span class="tag">Terracota</span><span class="tag">Racing</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">6</div><div><div class="t">Lista no tema Madeira (claro)</div><div class="s">o "Daylight" do preview</div></div></div>
+      <div class="phone"><img src="assets/carlog/impl6.png" alt="Modo Lista no tema Madeira"></div>
+      <div class="desc">Com o tema claro (Madeira), a Lista fica parecida com a ideia Daylight: fundo claro, linhas com ícone colorido e resumo. Tema + modo se combinam.</div>
+      <div class="tags"><span class="tag">Madeira (claro)</span><span class="tag">Lista</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><div class="num">7</div><div><div class="t">Teclas no tema atual (Terracota)</div><div class="s">modo de teclas com a identidade atual</div></div></div>
+      <div class="phone"><img src="assets/carlog/impl7.png" alt="Modo Teclas no tema Terracota"></div>
+      <div class="desc">Para comparar: o mesmo painel de teclas no tema padrão do app.</div>
+      <div class="tags"><span class="tag">Terracota</span><span class="tag">Teclas</span></div>
+    </div>
+
+  </div>
+
+  <footer>CarLog v0.44.0 · tema Neon Drift + modos Racing, Lista e Teclas · 2026-09-19</footer>
+</div>
+</body>
+</html>
